@@ -46,12 +46,92 @@
 
 // Mugs (x15)
 
-// Stickers (x15)
+1. Plain White Ceramic Mug: Photo by cottonbro from Pexels
+2. Brown Flower Pattern Mug: Photo by Nicole Queiroz from Pexels
+3. Happy Camper Mug: Photo by Dominika Roseclay from Pexels
+4. I Believe in Unicorns Mug: Photo by Lisa Fotios from Pexels
+5. Bird Pattern Mug: Photo by Dominika Roseclay from Pexels
+6. Brown Ceramic Mug: Photo by Edward Eyer from Pexels
+7. Grey Ceramic Mug: Photo by lilartsy from Pexels
+8. Be Happy Mug: Photo by Lisa Fotios from Pexels
+9. Believe Christmas Mug: Photo by Jill Wellington from Pexels
+10. Style, Class, Luxury Mug: Photo by Drew Williams from Pexels
+11. Patterned Ceramic Mug: Photo by Karolina Grabowska from Pexels
+12. Light Blue Ceramic Mug: Photo by Taryn Elliott from Pexels
+13. Adventure Begins Mug: Photo by S Migaj from Pexels
+14. You can win Mug: Photo by Olenka Sergienko from Pexels
+15. Let Life Surprise You Mug: Photo by Dagmara Dombrovska from Pexels
+16. Pink Ceramic Mug: Photo by Dominika Roseclay from Pexels
+17. Peppered Mug: Photo by Aljona Ovtšinnikova from Pexels
+18. Purple Mug: Photo by Dagmara Dombrovska from Pexels
+19. Light Blue Mug: Photo by Alina Vilchenko from Pexels
+20. Keep Tiny Humans Alive Mug: Photo by Chelsey Horne from Pexels
+21. Red Generic Mug: Photo by Vinícius Estevão from Pexels
+22. Stainless Steel Mug: Photo by Vinícius Estevão from Pexels
+23. Polka Dot Mug: Photo by Ann Buht from Pexels
+24. Generic Black Ceramic Mug: Photo by PNW Production from Pexels
+25. Black Patterned Mug: Photo by Галина Ласаева from Pexels
+26. Blue Patterned Mug: Photo by Joslyn Pickens from Pexels
+27. Say Yes to New Adventures Mug: Photo by JACK REDGATE from Pexels
 
 // Handbags (x15)
 
+1. Floral Handbag: Photo by flat hito from Pexels
+2. Black Leather Handbag: Photo by Cats Coming from Pexels
+3. Brown Leather Handbag: Photo by Artem Beliaikin from Pexels
+4. Brown Checkered Handbag: Photo by Anne R from Pexels
+5. Light Blue Leather Handbag: Photo by jasmin chew from Pexels
+6. Black Laeather Handbag #2: Photo by Kaboompics .com from Pexels
+7. Purple Handbag: Photo by Diana Akhmetianova from Pexels
+9. Teal Handbag: Photo by Diana Akhmetianova from Pexels
+10. Brown Purse: Photo by Diana Akhmetianova from Pexels
+11. Orange Sling Bag: Photo by Enes Çelik from Pexels
+12. Brown Sling Bag: Photo by Vlada Karpovich from Pexels
+13. Brown Pattern Handbag: Photo by Vlada Karpovich from Pexels
+14. Floral Pattern Handbag: Photo by Ana García Geng from Pexels
+15. Light Purple Pattern Handbag: Photo by Creative Headline on Unsplash
+16. Pink Pattern Handbag: Photo by Arno Senoner on Unsplash
+17. Brown Check Pattern Handbag: Photo by Irene Kredenets on Unsplash
+18. Navy Blue Handbag: Photo by Irene Kredenets on Unsplash
+19. Light Blue Handbag: Photo by Gabrielle Henderson on Unsplash
+20. Red Handbag: Photo by Arno Senoner on Unsplash   
 
-
-// Wallets (x15)
 
 // Accessories (Keychains, Rings, Necklaces) (x30)
+
+1. Decorative Earrings: Photo by Simona Sergi on Unsplash
+2. Fake Pearl Earrings: Photo by Carmen Alarcón on Unsplash
+3. Topaz Earrings: Photo by Sabrianna on Unsplash
+4. Blue Heart Earrings: Photo by Valentina Jorio on Unsplash
+5. Amethyst Earrings: Photo by Arteum.ro on Unsplash
+6. Star Earrings: Photo by Gabrielle Henderson on Unsplash
+7. Start Pattern Earrings: Photo by Myrlene NUMA on Unsplash
+8. Blue Crystal Earrings: Photo by LOVESWEET SINGH on Unsplash
+9. Amber Earrings: Photo by Andrew Hutchings on Unsplash
+10. Gold Plated Gem Earrings: Photo by MAYANK GEHLOT on Unsplash
+11. Blue Gemstone Silver Coat Earrings: Photo by Arteum.ro on Unsplash
+12. Light Pink Crystal Earrings: Photo by peng wang on Unsplash
+
+1. Blue Gemstone Ring: Photo by Sabrianna on Unsplash
+2. Pink Gemstone Ring: Photo by Sabrianna on Unsplash
+3. Purple Gemstone Ring: Photo by Sabrianna on Unsplash
+4. Clear Gemstone Ring: Photo by Sabrianna on Unsplash
+5. Deep Blue Gemstone Ring: Photo by Sabrianna on Unsplash
+6. Simple Silver Ring: Photo by Luigi Pozzoli on Unsplash
+7. SImple Gold Ring: Photo by Mariano Rivas on Unsplash
+8. Crystal Band: Photo by Sabrianna on Unsplash
+9. Blue Gemstone Ring #2: Photo by Kuromi Lu on Unsplash
+
+1. Turquoise Gem Necklace: Photo by Andres Vera on Unsplash
+2. Metal Necklace: Photo by lilartsy on Unsplash
+3. Crystal Flower Necklace: Photo by Asal Mshk on Unsplash
+4. Blue Heart Necklace: Photo by Patricia Zavala on Unsplash
+5. Gold Band Necklace: Photo by Sama Hosseini on Unsplash
+6. Clear Gem Necklace: Photo by Sabrianna on Unsplash
+7. Crystal Heart Necklace: Photo by Sabrianna on Unsplash
+8. Pearl Tear Necklace: Photo by Jasmin Chew on Unsplash
+9. Fake Pearl Necklace: Photo by Cornelia Ng on Unsplash
+
+1. Blue Gem Bracelet: Photo by Alexey Demidov on Unsplash
+2. Ruby Bracelet: Photo by Akhilesh Sharma on Unsplash
+3. Fake Diamond Bracelet: Photo by Akhilesh Sharma on Unsplash
