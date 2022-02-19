@@ -21,7 +21,7 @@ const App = () => {
   return (
     <div>
       <Router>
-        <NavBar />
+        <NavBar user={false}/>
         <Routes>
           <Route path="/" element={<Navigate replace to="/landing" />} />
           <Route path="/landing" element={<LandingPage />} />

@@ -1,0 +1,40 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+// Styling for Header Mobile
+
+/* Styling for Mobile Header (and Tablet) */
+
+.header-mobile {
+    display: flex;
+    width: 100%;
+    padding: 1rem 0rem 0rem;
+    justify-content: space-between;
+    background-color: $white;
+    border: 3px solid black;
+
+    @include desktop {
+      display: none;
+    }
+
+    &__menu {
+        width: 35px;
+        height: 35px;
+    }
+
+    &__logo {
+        width: 110px;
+        height: 55px;
+    }
+
+    &__account {
+        width: 25px;
+        height: 25px;
+    }
+}
