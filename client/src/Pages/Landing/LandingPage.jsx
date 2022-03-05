@@ -4,7 +4,7 @@ import "./LandingPage.scss";
 const LandingPage = (props) => {
 
     return (
-        <p>Hi! Welcome to Mochify!</p>
+        <p className="idk">Hi! Welcome to Mochify!</p>
     );
 };
 
