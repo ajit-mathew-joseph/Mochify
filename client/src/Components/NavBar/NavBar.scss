@@ -42,7 +42,6 @@ ul {
     background-color: $white;
     width: 88%;
     height: 100vh;
-    border: 1px solid black;
     transition: 0.5s ease transform;
 
     @include tablet {
@@ -57,7 +56,6 @@ ul {
     background-color: $white;
     width: 88%;
     height: 100vh;
-    border: 1px solid black;
     transition: 0.5s ease transform;
     transform: translateX(-100%);
 
@@ -84,14 +82,6 @@ ul {
     position: absolute;
     top: 5%;
   }
-
-  /* &__slidingMenu--divider {
-    border-bottom: 6px double black;
-    position: absolute;
-    top: 26.5%;
-    left: 13.5%;
-    width: 75px;
-  } */
 
   &__slidingMenu--banner {
     width: 200px;
@@ -144,7 +134,7 @@ ul {
     position: fixed;
     top: 0%;
     z-index: 10;
-    background-color: rgba(15, 13, 13, 0.651);
+    background-color: $overlay;
     width: 100%;
     height: 100vh;
     animation: fadeIn 0.1s;
@@ -283,4 +273,117 @@ ul {
 
 .header-desktop {
   display: none;
+
+  @include desktop {
+    display: flex;
+    height: 140px;
+  }
+
+  &__logo {
+    @include desktop {
+      width: 140px;
+      height: 70px;
+      position: absolute;
+      left: 43%;
+      top: 1.5%;
+    }
+  }
+
+  &__icon-container {
+    @include desktop {
+      position: absolute;
+      left: 86%;
+      top: 3.5%;
+      width: 200px;
+    }
+
+    @include xl-desktop {
+      left: 89%;
+    }
+  }
+
+  &__icon {
+    @include desktop {
+      width: 30px;
+      height: 30px;
+      margin: 0% 5% 0%;
+    }
+  }
+
+  &__options-search--container {
+    @include desktop {
+      position: absolute;
+      left: 0%;
+      top: 15%;
+      width: 100%;
+      height: 140px;
+      background-color: $grey;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: baseline;
+      padding-top: 2rem;
+    }
+  }
+
+  &__options-search--bar {
+    @include desktop {
+      width: 60%;
+      height: 30px;
+      border: 2px solid $black;
+      margin: 2%;
+    }
+  }
+
+  &__options-search--bar::placeholder {
+    font-family: $Lato;
+    text-indent: 7px;
+    font-size: 0.9rem;
+  }
+
+  &__options-search--bar:focus {
+    text-indent: 7px;
+  }
+
+  &__options-search--bar:focus::placeholder {
+    color: transparent;
+  }
+
+  &__options-search--button {
+    @include desktop {
+      width: 8%;
+      height: 44px;
+      height: 35px;
+      background-color: $white;
+      border: 1px solid $black;
+      font-family: $Lato;
+      font-weight: 700;
+      margin: 0% 0% 1%;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 8%;
+    left: 25%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    @include xl-desktop {
+      width: 32%;
+      left: 28%;
+    }
+  }
+
+  &__options--link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $black;
+    font-family: $Fredoka;
+    margin: 0% 15% 0%;
+    font-weight: 600;
+  }
 }
+

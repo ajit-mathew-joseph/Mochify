@@ -12,7 +12,7 @@ const Footer = (props) => {
   }
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <form className="footer__mailing-list">
         <h3 className="footer__mailing-list--title">
           Love my site? Join my mailing list!
@@ -48,7 +48,7 @@ const Footer = (props) => {
         <li className="footer__list-item">PRIVACY</li>
         <li className="footer__list-item">ACCESSIBILITY</li>
       </ul>
-    </div>
+    </footer>
   );
 };
 
