@@ -27,6 +27,10 @@ const NavBar = (props) => {
     setShowSearch(!showSearch);
   };
 
+  const ClickHandler = () => {
+    console.log("Click!");
+  };
+
   useEffect(() => {
     let mouseHandler = (e) => {
       if (!menuRef.current.contains(e.target)) {
@@ -85,8 +89,14 @@ const NavBar = (props) => {
             </ul>
 
             <div className="header-mobile__slidingMenu--divider">
-              <img className="header-mobile__slidingMenu--banner" src={NewArrivals}/>
-              <img className="header-mobile__slidingMenu--banner2" src={Plushies}/>    
+              <img
+                className="header-mobile__slidingMenu--banner"
+                src={NewArrivals}
+              />
+              <img
+                className="header-mobile__slidingMenu--banner2"
+                src={Plushies}
+              />
             </div>
 
             <ul className="header-mobile__slidingMenu--container2">
@@ -109,7 +119,7 @@ const NavBar = (props) => {
                 </li>
               </Link>
               <Link className="header-mobile__slidingMenu--link2" to="/">
-              <img
+                <img
                   className="header-mobile__slidingMenu--icon"
                   src={HistoryOutline}
                 />
@@ -118,7 +128,7 @@ const NavBar = (props) => {
                 </li>
               </Link>
               <Link className="header-mobile__slidingMenu--link2" to="/">
-              <img
+                <img
                   className="header-mobile__slidingMenu--icon"
                   src={HeartOutline}
                 />
@@ -182,11 +192,66 @@ const NavBar = (props) => {
 
       {dropdown ? <div className="header-mobile__overlay"></div> : <div></div>}
 
-      <div className="header-desktop">
-        <Link className="header-desktop__logo-link" to="/">
-          <img className="header-desktop__logo" src={MochifyLogo} />
-        </Link>
-      </div>
+      <nav className="header-desktop">
+        <div className="header-desktop__logo-container">
+          <Link className="header-desktop__logo-link" to="/">
+            <img className="header-desktop__logo" src={MochifyLogo} />
+          </Link>
+
+          <ul className="header-desktop__options">
+            <li className="header-desktop__option">
+              <Link  to="/" className="header-desktop__options--link">Accessories</Link>
+            </li>
+            <li className="header-desktop__option">
+              <Link to="/" className="header-desktop__options--link">Handbags</Link>
+            </li>
+            <li className="header-desktop__option">
+              <Link to="/" className="header-desktop__options--link">Makeup</Link>
+            </li>
+            <li className="header-desktop__option">
+              <Link to="/" className="header-desktop__options--link">Mugs</Link>
+            </li>
+            <li className="header-desktop__option">
+              <Link to="/" className="header-desktop__options--link">Plush</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="header-desktop__icon-container">
+          <img
+            className="header-desktop__icon"
+            src={SearchIconOutline}
+            onClick={showSearchHandler}
+          />
+          <img
+            className="header-desktop__icon"
+            src={PersonOutline}
+            onClick={ClickHandler}
+          />
+          <img
+            className="header-desktop__icon"
+            src={CartIconOutline}
+            onClick={ClickHandler}
+          />
+        </div>
+
+        {showSearch ? (
+          <>
+            <div className="header-desktop__options-search--container">
+              <input
+                type="text"
+                className="header-desktop__options-search--bar"
+                placeholder="Search for..."
+              />
+              <button className="header-desktop__options-search--button">
+                Search
+              </button>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+      </nav>
     </div>
   );
 };

@@ -1,0 +1,187 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.about {
+    &__hero {
+        background-image: url("../../Assets/Images/AboutPage/Hero.jpg");
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            height: 500px;
+        }
+
+        @include desktop {
+            height: 500px;
+        }
+    }
+
+
+    &__hero--title {
+        align-self: center;
+        color: $white;
+        font-family: $Fredoka;
+
+        @include tablet {
+            font-size: 3.5rem;
+            top: 25%;
+            left: 26%;
+        }
+    }
+
+    &__about-me--paragraph {
+        width: 90%;
+        margin: 5%;
+        font-family: $Lato;
+        color: $palette1;
+
+        @include tablet {
+            margin: 2% 5% 2%;
+            font-size: 1.2rem;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 2% 25% 1%;
+        }
+    }
+
+    &__quality-products--hero {
+        background-image: url("../../Assets/Images/AboutPage/PinkCloud2.jpg");
+        background-position: center;
+        background-size: cover;
+        width: 90%;
+        margin: 0% 5% 0%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            height: 400px;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 0% 25% 0%;
+        }
+    }
+
+    &__quality-products--title {
+        color: $white;
+        font-family: $Fredoka;
+        width: 50%;
+        font-size: 1.5rem;
+
+        @include tablet {
+            font-size: 3.5rem;
+        }
+
+    }
+
+    &__quality-products--paragraph {
+        width: 90%;
+        margin: 5%;
+        font-family: $Lato;
+        color: $palette1;
+
+        @include tablet {
+            margin: 2% 5% 2%;
+            font-size: 1.2rem;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 1% 25% 1%;
+        }
+    }
+
+    &__social-impact--hero {
+        background-image: url("../../Assets/Images/AboutPage/Panda.jpg");
+        background-position: center;
+        background-size: cover;
+        width: 90%;
+        margin: 0% 5% 0%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include tablet {
+            height: 400px;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 0% 25% 0%;
+        }
+    }
+
+    &__social-impact--title {
+        color: $white;
+        font-family: $Fredoka;
+        width: 80%;
+        font-size: 1.5rem;
+
+        @include tablet {
+            font-size: 3.5rem;
+        }
+
+        @include desktop {
+            width: 60%;
+        }
+
+    }
+
+    &__social-impact--paragraph {
+        width: 90%;
+        margin: 5%;
+        font-family: $Lato;
+        color: $palette1;
+
+        @include tablet {
+            margin: 2% 5% 2%;
+            font-size: 1.2rem;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 1% 25% 1%;
+        }
+    }
+
+    &__thank-you--image {
+        width: 90%;
+        margin: 0% 5% 0%;
+
+        @include desktop {
+            width: 50%;
+            height: 600px;
+            margin: 0% 25% 0%;
+        }
+    }
+
+    &__thank-you--text {
+        width: 90%;
+        margin: 5%;
+        font-family: Lato;
+
+        @include tablet {
+            margin: 2% 5%;
+        }
+
+        @include desktop {
+            width: 50%;
+            margin: 1.5% 25%;
+        }
+    }
+
+}
