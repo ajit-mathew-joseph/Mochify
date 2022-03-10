@@ -1,10 +1,11 @@
 import React from "react";
 import "./ProductsPage.scss";
+import ProductCard from "../../Components/ProductCard/ProductCard";
 
 const ProductsPage = (props) => {
 
     return (
-        <p>Welcome to the products page!</p>
+        <ProductCard/>
     );
 };
 
