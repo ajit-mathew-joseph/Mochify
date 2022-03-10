@@ -9,22 +9,29 @@ import HeartOutline from "../../Assets/Icons/heart-outline.svg";
 import AddOutline from "../../Assets/Icons/person-add-outline.svg";
 import HistoryOutline from "../../Assets/Icons/reader-outline.svg";
 import PersonOutline from "../../Assets/Icons/person-outline.svg";
-import NewArrivals from "../../Assets/Banners/New-Arrivals";
-import Plushies from "../../Assets/Banners/30-Off-Plushies";
+import NewArrivals from "../../Assets/Banners/New-Arrivals-Menu";
+import Plushies from "../../Assets/Banners/30-Off-Plushies-Menu";
+import dropDownImg from "../../Assets/Images/Nav/dropDown.png";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
-  const [dropdown, setDropDown] = useState(false);
+  const [slidingMenu, setSlidingMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   let menuRef = useRef();
+  let searchRef = useRef();
 
-  const dropDownHandler = () => {
-    setDropDown(!dropdown);
+  const slidingMenuHandler = () => {
+    setSlidingMenu(!slidingMenu);
   };
 
   const showSearchHandler = () => {
     setShowSearch(!showSearch);
+  };
+
+  const dropDownHandler = () => {
+    setDropDown(!dropDown);
   };
 
   const ClickHandler = () => {
@@ -34,7 +41,7 @@ const NavBar = (props) => {
   useEffect(() => {
     let mouseHandler = (e) => {
       if (!menuRef.current.contains(e.target)) {
-        setDropDown(false);
+        setSlidingMenu(false);
       }
     };
 
@@ -45,20 +52,34 @@ const NavBar = (props) => {
     };
   });
 
+  useEffect(() => {
+    let searchHandler = (e) => {
+      if (!searchRef.current.contains(e.target)) {
+        setShowSearch(!showSearch);
+      }
+    };
+
+    document.addEventListener("mousedown", searchHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", searchHandler);
+    };
+  });
+
   return (
     <div className="header-container">
       <div className="header-mobile">
         <img
           className="header-mobile__menu"
           src={MenuIconOutline}
-          onClick={dropDownHandler}
+          onClick={slidingMenuHandler}
         />
-        {dropdown ? (
+        {slidingMenu ? (
           <div ref={menuRef} className="header-mobile__slidingMenu">
             <div className="header-mobile__slidingMenu--close-container">
               <img
                 className="header-mobile__slidingMenu--close-icon"
-                onClick={dropDownHandler}
+                onClick={slidingMenuHandler}
                 src={CloseOutline}
               />
             </div>
@@ -143,7 +164,7 @@ const NavBar = (props) => {
             <div className="header-mobile__slidingMenu--close-container">
               <img
                 className="header-mobile__slidingMenu--close-icon"
-                onClick={dropDownHandler}
+                onClick={slidingMenuHandler}
                 src={CloseOutline}
               />
             </div>
@@ -160,7 +181,10 @@ const NavBar = (props) => {
               src={SearchIconOutline}
               onClick={showSearchHandler}
             />
-            <div className="header-mobile__options-search--container">
+            <div
+              ref={searchRef}
+              className="header-mobile__options-search--container"
+            >
               <input
                 type="text"
                 className="header-mobile__options-search--bar"
@@ -190,7 +214,11 @@ const NavBar = (props) => {
         )}
       </div>
 
-      {dropdown ? <div className="header-mobile__overlay"></div> : <div></div>}
+      {slidingMenu ? (
+        <div className="header-mobile__overlay"></div>
+      ) : (
+        <div></div>
+      )}
 
       <nav className="header-desktop">
         <div className="header-desktop__logo-container">
@@ -200,19 +228,29 @@ const NavBar = (props) => {
 
           <ul className="header-desktop__options">
             <li className="header-desktop__option">
-              <Link  to="/" className="header-desktop__options--link">Accessories</Link>
+              <Link to="/" className="header-desktop__options--link">
+                Accessories
+              </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">Handbags</Link>
+              <Link to="/" className="header-desktop__options--link">
+                Handbags
+              </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">Makeup</Link>
+              <Link to="/" className="header-desktop__options--link">
+                Makeup
+              </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">Mugs</Link>
+              <Link to="/" className="header-desktop__options--link">
+                Mugs
+              </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">Plush</Link>
+              <Link to="/" className="header-desktop__options--link">
+                Plush
+              </Link>
             </li>
           </ul>
         </div>
@@ -226,7 +264,7 @@ const NavBar = (props) => {
           <img
             className="header-desktop__icon"
             src={PersonOutline}
-            onClick={ClickHandler}
+            onClick={dropDownHandler}
           />
           <img
             className="header-desktop__icon"
@@ -237,7 +275,7 @@ const NavBar = (props) => {
 
         {showSearch ? (
           <>
-            <div className="header-desktop__options-search--container">
+            <div ref={searchRef} className="header-desktop__options-search--container">
               <input
                 type="text"
                 className="header-desktop__options-search--bar"
@@ -248,6 +286,52 @@ const NavBar = (props) => {
               </button>
             </div>
           </>
+        ) : (
+          <></>
+        )}
+
+        {dropDown ? (
+          <div className="header-desktop__options-acount--container">
+              <img className="header-desktop__options-account--dropDown" src={dropDownImg} />
+              <ul className="header-desktop__options-account--list">
+              <Link className="header-desktop__options-account--link" to="/">
+                <img
+                  className="header-desktop__options-account--icon"
+                  src={AddOutline}
+                />
+                <li className="header-desktop__options-account--text">
+                  Sign Up
+                </li>
+              </Link>
+              <Link className="header-desktop__options-account--link" to="/">
+                <img
+                  className="header-desktop__options-account--icon"
+                  src={PersonOutline}
+                />
+                <li className="header-desktop__options-account--text">
+                  Log In
+                </li>
+              </Link>
+              <Link className="header-desktop__options-account--link" to="/">
+                <img
+                  className="header-desktop__options-account--icon"
+                  src={HistoryOutline}
+                />
+                <li className="header-desktop__options-account--text">
+                  Order History
+                </li>
+              </Link>
+              <Link className="header-desktop__options-account--link" to="/">
+                <img
+                  className="header-desktop__options-account--icon"
+                  src={HeartOutline}
+                />
+                <li className="header-desktop__options-account--text">
+                  My Wishlist
+                </li>
+              </Link>
+              </ul>
+            </div>
         ) : (
           <></>
         )}
