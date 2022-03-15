@@ -3,10 +3,14 @@ import "./ProductsPage.scss";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 
 const ProductsPage = (props) => {
-
-    return (
-        <ProductCard/>
-    );
+  return (
+    <div className="products-page">
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+      <ProductCard />
+    </div>
+  );
 };
 
 export default ProductsPage;
