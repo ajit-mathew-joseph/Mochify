@@ -1,3 +1,208 @@
-.idk {
-    height: 300vh;
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.landingPage {
+  &__hero {
+    background-image: url("../../Assets/Banners/makeup-mobile.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      height: 450px;
+    }
+
+    @include desktop {
+      height: 550px;
+    }
+  }
+
+  &__hero--button {
+    position: absolute;
+    top: 28.5%;
+    left: 35%;
+    width: 30%;
+    height: 30px;
+    background-color: rgb(186, 221, 233);
+    border: 1px solid $white;
+    font-family: $Lato;
+    color: $white;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+
+    @include tablet {
+      height: 40px;
+      margin: 0% 2% 0%;
+      width: 20%;
+      top: 56%;
+      left: 36%;
+      font-size: 1rem;
+    }
+
+    @include desktop {
+      height: 50px;
+      width: 15%;
+      top: 66%;
+      left: 39.5%;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__divider {
+    border-top: 3px solid $palette1;
+    width: 90%;
+    position: absolute;
+    top: 35%;
+    left: 5%;
+
+    @include tablet {
+      top: 67.5%;
+    }
+
+    @include desktop {
+      top: 81%;
+    }
+  }
+
+  &__divider--text {
+    position: absolute;
+    top: 32%;
+    left: 34.7%;
+    background-color: $white;
+    padding: 0rem 1rem;
+    font-family: $Fredoka;
+
+    @include tablet {
+      top: 63.7%;
+      left: 42%;
+      font-size: 1.2rem;
+    }
+
+    @include desktop {
+      top: 77.6%;
+      left: 45%;
+    }
+
+    @include xl-desktop {
+      top: 76.6%;
+      left: 46%;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__featured-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 8% 0% 0%;
+
+    @include desktop {
+      margin: 6% 0% 0%;
+    }
+  }
+
+  &__discount-banner {
+    background-image: url("../../Assets/Banners/30-Off-Plushies-Menu");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet {
+      background-image: url("../../Assets/Banners/plush.png");
+      height: 450px;
+    }
+
+    @include desktop {
+      height: 550px;
+    }
+  }
+
+  &__discount-banner--button {
+    position: relative;
+    top: 41%;
+    width: 30%;
+    height: 30px;
+    background-color: rgba(211, 173, 198, 0.226);
+    border: 1px solid $white;
+    font-family: $Lato;
+    color: $white;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+
+    @include tablet {
+      height: 40px;
+      margin: 0% 2% 0%;
+      max-width: 20%;
+      top: 36%;
+      left: 18%;
+      font-size: 1rem;
+    }
+
+    @include laptop {
+      width: 15%;
+      left: 15%;
+    }
+
+    @include desktop {
+      height: 50px;
+      width: 12%;
+      top: 38%;
+      left: 13%;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__promo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 2% 0% 0%;
+
+    @include desktop {
+      margin: 6% 0% 0%;
+    }
+
+    @include xl-desktop {
+      margin: 0.5% 0% 2%;
+    }
+  }
+
+  &__promo-container--subContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__promo-container--image { 
+    width: 100%;
+    height: 220px;
+    margin: 2% 0% 4%;
+
+    @include laptop {
+     height: 350px;
+    }
+
+    @include desktop {
+      height: 500px;
+    }
+
+    @include xl-desktop {
+      height: 700px;
+      margin: 2% 0% 0%;
+    }
+  }
+
+  &__promo-container--button {
+    display: none;
+  }
 }

@@ -19,8 +19,8 @@ const NavBar = (props) => {
   const [showSearch, setShowSearch] = useState(false);
   const [dropDown, setDropDown] = useState(false);
 
-  let menuRef = useRef();
-  let searchRef = useRef();
+  let menuRef = useRef(null);
+  let searchRef = useRef(null);
 
   const slidingMenuHandler = () => {
     setSlidingMenu(!slidingMenu);

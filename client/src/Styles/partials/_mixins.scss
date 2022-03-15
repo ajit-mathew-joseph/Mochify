@@ -7,11 +7,19 @@
     }
 }
 
+@mixin laptop {
+    @media (min-width: $laptop-bp) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: $desktop-bp) {
         @content;
     }
 }
+
+
 
 @mixin xl-desktop {
     @media  (min-width: $xl-desktop-bp) {

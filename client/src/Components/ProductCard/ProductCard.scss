@@ -1,0 +1,100 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.productCard {
+  width: 80%;
+  margin: 5% 10% 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    width: 35%;
+    margin: 3% 0%;
+  }
+
+  @include desktop {
+    width: 20%;
+    margin: 3% 0%;
+  }
+
+  @include xl-desktop {
+    margin: 2% 0% 2%;
+  }
+
+  &__image--image {
+    width: 220px;
+    height: 220px;
+  }
+
+  &__text--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 205px;
+    max-height: 40px;
+    margin: 2% 0% 3%;
+  }
+
+  &__text--title {
+    font-family: $Fredoka;
+    max-width: 80%;
+    padding: 0rem 0rem 0rem 2.5rem;
+  }
+
+  &__text--icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__price--text {
+    font-family: $Fredoka;
+    color: $palette1;
+  }
+
+  &__price--quantity-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0% 0% 5%;
+    width: 150px;
+    height: 30px;
+  }
+
+  &__price--icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__price--display {
+    font-family: $Lato;
+    font-weight: 600;
+  }
+
+  &__price--button {
+    width: 70%;
+    height: 35px;
+    background-color: $white;
+    border: 1px solid black;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+
+    @include tablet {
+      height: 34px;
+      margin: 0% 2% 0%;
+      width: 70%;
+    }
+
+    @include desktop {
+      height: 44px;
+    }
+  }
+}
