@@ -15,71 +15,20 @@ import dropDownImg from "../../Assets/Images/Nav/dropDown.png";
 import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
-  const [slidingMenu, setSlidingMenu] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-  const [dropDown, setDropDown] = useState(false);
-
-  let menuRef = useRef(null);
-  let searchRef = useRef(null);
-
-  const slidingMenuHandler = () => {
-    setSlidingMenu(!slidingMenu);
-  };
-
-  const showSearchHandler = () => {
-    setShowSearch(!showSearch);
-  };
-
-  const dropDownHandler = () => {
-    setDropDown(!dropDown);
-  };
-
-  const ClickHandler = () => {
-    console.log("Click!");
-  };
-
-  useEffect(() => {
-    let mouseHandler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
-        setSlidingMenu(false);
-      }
-    };
-
-    document.addEventListener("mousedown", mouseHandler);
-
-    return () => {
-      document.removeEventListener("mousedown", mouseHandler);
-    };
-  });
-
-  useEffect(() => {
-    let searchHandler = (e) => {
-      if (!searchRef.current.contains(e.target)) {
-        setShowSearch(!showSearch);
-      }
-    };
-
-    document.addEventListener("mousedown", searchHandler);
-
-    return () => {
-      document.removeEventListener("mousedown", searchHandler);
-    };
-  });
-
   return (
     <div className="header-container">
       <div className="header-mobile">
         <img
           className="header-mobile__menu"
           src={MenuIconOutline}
-          onClick={slidingMenuHandler}
+          onClick={props.slidingMenuHandler}
         />
-        {slidingMenu ? (
-          <div ref={menuRef} className="header-mobile__slidingMenu">
+        {props.slidingMenu ? (
+          <div ref={props.menuRef} className="header-mobile__slidingMenu">
             <div className="header-mobile__slidingMenu--close-container">
               <img
                 className="header-mobile__slidingMenu--close-icon"
-                onClick={slidingMenuHandler}
+                onClick={props.slidingMenuHandler}
                 src={CloseOutline}
               />
             </div>
@@ -121,42 +70,92 @@ const NavBar = (props) => {
             </div>
 
             <ul className="header-mobile__slidingMenu--container2">
-              <Link className="header-mobile__slidingMenu--link2" to="/">
-                <img
-                  className="header-mobile__slidingMenu--icon"
-                  src={AddOutline}
-                />
-                <li className="header-mobile__slidingMenu--link-text2">
-                  Sign Up
-                </li>
-              </Link>
-              <Link className="header-mobile__slidingMenu--link2" to="/">
-                <img
-                  className="header-mobile__slidingMenu--icon"
-                  src={PersonOutline}
-                />
-                <li className="header-mobile__slidingMenu--link-text2">
-                  Log In
-                </li>
-              </Link>
-              <Link className="header-mobile__slidingMenu--link2" to="/">
-                <img
-                  className="header-mobile__slidingMenu--icon"
-                  src={HistoryOutline}
-                />
-                <li className="header-mobile__slidingMenu--link-text2">
-                  Order History
-                </li>
-              </Link>
-              <Link className="header-mobile__slidingMenu--link2" to="/">
-                <img
-                  className="header-mobile__slidingMenu--icon"
-                  src={HeartOutline}
-                />
-                <li className="header-mobile__slidingMenu--link-text2">
-                  My Wishlist
-                </li>
-              </Link>
+              {props.user ? (
+                <>
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      My Account
+                    </li>
+                  </Link>
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={HistoryOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      Order History
+                    </li>
+                  </Link>
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={HeartOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      My Wishlist
+                    </li>
+                  </Link>
+
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/"
+                    onClick={props.logout}
+                  >
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      Log Out
+                    </li>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={AddOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      Sign Up
+                    </li>
+                  </Link>
+
+                  <Link className="header-mobile__slidingMenu--link2" to="/signin" onClick={props.slidingMenuHandler}>
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      Log In
+                    </li>
+                  </Link>
+
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={HistoryOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      Order History
+                    </li>
+                  </Link>
+                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                    <img
+                      className="header-mobile__slidingMenu--icon"
+                      src={HeartOutline}
+                    />
+                    <li className="header-mobile__slidingMenu--link-text2">
+                      My Wishlist
+                    </li>
+                  </Link>
+                </>
+              )}
             </ul>
           </div>
         ) : (
@@ -164,7 +163,7 @@ const NavBar = (props) => {
             <div className="header-mobile__slidingMenu--close-container">
               <img
                 className="header-mobile__slidingMenu--close-icon"
-                onClick={slidingMenuHandler}
+                onClick={props.slidingMenuHandler}
                 src={CloseOutline}
               />
             </div>
@@ -174,15 +173,15 @@ const NavBar = (props) => {
           <img className="header-mobile__logo" src={MochifyLogo} />
         </Link>
 
-        {showSearch ? (
+        {props.showSearch ? (
           <div className="header-mobile__options-container">
             <img
               className="header-mobile__options-search"
               src={SearchIconOutline}
-              onClick={showSearchHandler}
+              onClick={props.showSearchHandler}
             />
             <div
-              ref={searchRef}
+              ref={props.searchRef}
               className="header-mobile__options-search--container"
             >
               <input
@@ -204,7 +203,7 @@ const NavBar = (props) => {
             <img
               className="header-mobile__options-search"
               src={SearchIconOutline}
-              onClick={showSearchHandler}
+              onClick={props.showSearchHandler}
             />
             <img
               className="header-mobile__options-cart"
@@ -214,7 +213,7 @@ const NavBar = (props) => {
         )}
       </div>
 
-      {slidingMenu ? (
+      {props.slidingMenu ? (
         <div className="header-mobile__overlay"></div>
       ) : (
         <div></div>
@@ -259,23 +258,25 @@ const NavBar = (props) => {
           <img
             className="header-desktop__icon"
             src={SearchIconOutline}
-            onClick={showSearchHandler}
+            onClick={props.showSearchHandler}
           />
           <img
             className="header-desktop__icon"
             src={PersonOutline}
-            onClick={dropDownHandler}
+            onClick={props.dropDownHandler}
           />
           <img
             className="header-desktop__icon"
             src={CartIconOutline}
-            onClick={ClickHandler}
           />
         </div>
 
-        {showSearch ? (
+        {props.showSearch ? (
           <>
-            <div ref={searchRef} className="header-desktop__options-search--container">
+            <div
+              ref={props.searchRef}
+              className="header-desktop__options-search--container"
+            >
               <input
                 type="text"
                 className="header-desktop__options-search--bar"
@@ -290,11 +291,18 @@ const NavBar = (props) => {
           <></>
         )}
 
-        {dropDown ? (
+        {props.dropDown ? (
           <div className="header-desktop__options-acount--container">
-              <img className="header-desktop__options-account--dropDown" src={dropDownImg} />
-              <ul className="header-desktop__options-account--list">
-              <Link className="header-desktop__options-account--link" to="/">
+            <img
+              className="header-desktop__options-account--dropDown"
+              src={dropDownImg}
+            />
+            <ul className="header-desktop__options-account--list">
+              <Link
+                className="header-desktop__options-account--link"
+                to="/"
+                onClick={props.dropDownHandler}
+              >
                 <img
                   className="header-desktop__options-account--icon"
                   src={AddOutline}
@@ -303,7 +311,11 @@ const NavBar = (props) => {
                   Sign Up
                 </li>
               </Link>
-              <Link className="header-desktop__options-account--link" to="/">
+              <Link
+                className="header-desktop__options-account--link"
+                to="/signin"
+                onClick={props.dropDownHandler}
+              >
                 <img
                   className="header-desktop__options-account--icon"
                   src={PersonOutline}
@@ -312,7 +324,11 @@ const NavBar = (props) => {
                   Log In
                 </li>
               </Link>
-              <Link className="header-desktop__options-account--link" to="/">
+              <Link
+                className="header-desktop__options-account--link"
+                to="/"
+                onClick={props.dropDownHandler}
+              >
                 <img
                   className="header-desktop__options-account--icon"
                   src={HistoryOutline}
@@ -321,7 +337,11 @@ const NavBar = (props) => {
                   Order History
                 </li>
               </Link>
-              <Link className="header-desktop__options-account--link" to="/">
+              <Link
+                className="header-desktop__options-account--link"
+                to="/"
+                onClick={props.dropDownHandler}
+              >
                 <img
                   className="header-desktop__options-account--icon"
                   src={HeartOutline}
@@ -330,8 +350,8 @@ const NavBar = (props) => {
                   My Wishlist
                 </li>
               </Link>
-              </ul>
-            </div>
+            </ul>
+          </div>
         ) : (
           <></>
         )}
