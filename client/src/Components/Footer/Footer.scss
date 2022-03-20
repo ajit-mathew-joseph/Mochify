@@ -162,4 +162,12 @@
       margin: 2% 0% 1%
     }
   }
+
+  &__list--link {
+    display: flex;
+    text-decoration: none;
+    color: $black;
+    font-family: $Lato;
+    margin: 2% 0% 5%;
+  }
 }

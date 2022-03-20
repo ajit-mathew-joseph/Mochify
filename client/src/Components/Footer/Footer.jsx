@@ -5,11 +5,12 @@ import TwitterLogo from "../../Assets/Icons/logo-twitter.svg";
 import InstaLogo from "../../Assets/Icons/logo-instagram.svg";
 import TikTokLogo from "../../Assets/Icons/logo-tiktok.svg";
 import YoutubeLogo from "../../Assets/Icons/logo-youtube.svg";
+import { Link } from "react-router-dom";
 
 const Footer = (props) => {
   const FormSubmitHandler = (event) => {
     event.preventDefault();
-  }
+  };
 
   return (
     <footer className="footer">
@@ -18,8 +19,17 @@ const Footer = (props) => {
           Love my site? Join my mailing list!
         </h3>
         <div className="footer__mailing-list--input-container">
-          <input type="email" className="footer__mailing-list--input" placeholder="Enter email address"/>
-          <button className="footer__mailing-list--input-button" onClick={FormSubmitHandler}>JOIN</button>
+          <input
+            type="email"
+            className="footer__mailing-list--input"
+            placeholder="Enter email address"
+          />
+          <button
+            className="footer__mailing-list--input-button"
+            onClick={FormSubmitHandler}
+          >
+            JOIN
+          </button>
         </div>
       </form>
 
@@ -41,12 +51,23 @@ const Footer = (props) => {
         </a>
       </div>
       <ul className="footer__list">
-        <li className="footer__list-item">ABOUT</li>
-        <li className="footer__list-item">FAQs</li>
-        <li className="footer__list-item">TERMS</li>
-        <li className="footer__list-item">CONTACT ME</li>
-        <li className="footer__list-item">PRIVACY</li>
-        <li className="footer__list-item">ACCESSIBILITY</li>
+        <Link to="/about" className="footer__list--link">
+          <li className="footer__list-item">ABOUT</li>
+        </Link>
+        <Link to="/about" className="footer__list--link">
+          <li className="footer__list-item">FAQs</li>
+        </Link>
+        <Link to="/about" className="footer__list--link">
+          <li className="footer__list-item">TERMS</li>
+        </Link>
+        <Link to="/about" className="footer__list--link">
+        <li className="footer__list-item">CONTACT ME</li></Link>
+        <Link to="/about" className="footer__list--link">
+          <li className="footer__list-item">PRIVACY</li>
+        </Link>
+        <Link to="/" className="footer__list--link">
+          <li className="footer__list-item">ACCESSIBILITY</li>
+        </Link>
       </ul>
     </footer>
   );
