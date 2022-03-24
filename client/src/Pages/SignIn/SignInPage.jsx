@@ -11,8 +11,8 @@ const SignInPage = (props) => {
     firebaseApp
       .auth()
       .signInWithEmailAndPassword(
-        props.userInfo.emailID,
-        props.userInfo.passwordID
+        props.userInfo.email,
+        props.userInfo.password
       )
       .then((u) => {})
       .catch((err) => {
@@ -30,7 +30,7 @@ const SignInPage = (props) => {
           <label className="signIn__form--title">Email Address</label>
           <input
             className="signIn__form--input"
-            name="emailID"
+            name="email"
             type="email"
             placeholder="Enter your email"
             onChange={props.signInHandler}
@@ -42,7 +42,7 @@ const SignInPage = (props) => {
         <input
           className="signIn__form--input"
           type="passsword"
-          name="passwordID"
+          name="password"
           placeholder="Enter your password"
           onChange={props.signInHandler}
         />

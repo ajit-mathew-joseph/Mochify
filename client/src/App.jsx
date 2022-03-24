@@ -21,7 +21,12 @@ import SignInPage from "./Pages/SignIn/SignInPage";
 import UserPage from "./Pages/User/UserPage";
 
 const App = () => {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    birthday: null,
+    country: null,
+    region: null,
+    expirationDate: null,
+  });
 
   const userCookie = new Cookies();
 
@@ -49,6 +54,95 @@ const App = () => {
   const signInHandler = (e) => {
     setUserInfo((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
+    });
+  };
+
+  const dateHandler = (date) => {
+    setUserInfo((prevState) => {
+      return { ...prevState, birthday: date };
+    });
+  };
+
+  const expirationDateHandler = (date) => {
+    setUserInfo((prevState) => {
+      return { ...prevState, expirationDate: date };
+    });
+  };
+
+  const countryHandler = (country) => {
+    console.log(country);
+    setUserInfo((prevState) => {
+      return { ...prevState, country: country };
+    });
+  };
+
+  const regionHandler = (region) => {
+    console.log(region);
+    setUserInfo((prevState) => {
+      return { ...prevState, region: region };
+    });
+  };
+
+  // Test Function Out
+
+  const phoneFormatter = (value) => {
+    if (!value) return value;
+
+    const phoneNumber = value.replace(/[^\d]/g, "");
+    const phoneNumberLength = phoneNumber.length;
+
+    if (phoneNumberLength < 4) return phoneNumber;
+
+    if (phoneNumberLength < 7) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    }
+
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+      3,
+      6
+    )}-${phoneNumber.slice(6, 10)}`;
+  };
+
+  const phoneNumberHandler = (e) => {
+    const formattedNumber = phoneFormatter(e.target.value);
+
+    setUserInfo((prevState) => {
+      return { ...prevState, [e.target.name]: formattedNumber };
+    });
+  };
+
+  // Card Formatter
+
+  const cardFormatter = (value) => {
+    if (!value) return value;
+
+    const cardNumber = value.replace(/[^\d]/g, "");
+    const cardNumberLength = cardNumber.length;
+
+    if (cardNumberLength < 5) return cardNumber;
+
+    if (cardNumberLength < 9) {
+      return `${cardNumber.slice(0, 4)} ${cardNumber.slice(4)}`;
+    }
+
+    if (cardNumberLength < 13) {
+      return `${cardNumber.slice(0, 4)} ${cardNumber.slice(
+        4,
+        8
+      )} ${cardNumber.slice(8, 12)}`;
+    }
+
+    return `${cardNumber.slice(0, 4)} ${cardNumber.slice(
+      4,
+      8
+    )} ${cardNumber.slice(8, 12)} ${cardNumber.slice(12, 16)}`;
+  };
+
+  const cardNumHandler = (e) => {
+    const formattedCard = cardFormatter(e.target.value);
+
+    setUserInfo((prevState) => {
+      return { ...prevState, [e.target.name]: formattedCard };
     });
   };
 
@@ -132,7 +226,21 @@ const App = () => {
               <SignInPage signInHandler={signInHandler} userInfo={userInfo} />
             }
           />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/signup"
+            element={
+              <SignUpPage
+                signInHandler={signInHandler}
+                userInfo={userInfo}
+                dateHandler={dateHandler}
+                phoneNumberHandler={phoneNumberHandler}
+                countryHandler={countryHandler}
+                regionHandler={regionHandler}
+                cardNumHandler={cardNumHandler}
+                expirationDateHandler={expirationDateHandler}
+              />
+            }
+          />
           <Route path="/myCart" element={<ShoppingCartPage />} />
           <Route path="/myAccount" element={<UserPage />} />
         </Routes>
