@@ -2,10 +2,11 @@
 @use "../../Styles/partials/mixins" as *;
 @use "../../Styles/partials/variables" as *;
 
-.signUp {
+.paymentDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   @include tablet {
     width: 95%;
@@ -39,6 +40,19 @@
     }
   }
 
+  &__form--areaContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__form--areaSubContainer {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__form--container {
     display: flex;
     flex-direction: column;
@@ -65,6 +79,7 @@
     height: 30px;
     margin: 0% 0% 5%;
     border: 2px solid $black;
+    text-indent: 7px;
 
     @include tablet {
       margin: 0%;
@@ -102,18 +117,57 @@
 
     @include tablet {
       height: 34px;
-      width: 24%;
-      margin: 8% 2% 0%;
+      width: 30%;
+      margin: 10% 2%;
     }
 
     @include desktop {
-      width: 14%;
+      width: 24%;
       height: 44px;
-      margin: 3% 0% 0%;
+      margin: 8% 0% 5%;
     }
   }
 
   &__form--button:hover {
+    background-color: $black;
+    color: $white;
+  }
+
+  &__form--button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    @include tablet {
+      justify-content: space-evenly;
+      width: 60%;
+    }
+  }
+
+  &__form--signUp {
+    width: 30%;
+    height: 35px;
+    background-color: $palette3;
+    border: 1px solid black;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 5% 0% 5%;
+
+    @include tablet {
+      height: 34px;
+      width: 30%;
+      margin: 10% 2%;
+    }
+
+    @include desktop {
+      width: 24%;
+      height: 44px;
+      margin: 8% 0% 5%;
+    }
+  }
+
+  &__form--signUp:hover {
     background-color: $black;
     color: $white;
   }
