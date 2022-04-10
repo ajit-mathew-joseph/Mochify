@@ -19,6 +19,12 @@ import ShoppingCartPage from "./Pages/ShoppingCart/ShoppingCartPage";
 import SignUpPage from "./Pages/SignUp/SignUpPage";
 import SignInPage from "./Pages/SignIn/SignInPage";
 import UserPage from "./Pages/User/UserPage";
+import ProductList from "./tempData/tempData.json";
+import AccessoriesPage from "./Pages/Accessories/AccessoriesPage";
+import MakeupPage from "./Pages/Makeup/MakeupPage";
+import MugsPage from "./Pages/Mugs/MugsPage";
+import HandbagsPage from "./Pages/Handbags/HandbagsPage";
+import PlushPage from "./Pages/Plush/PlushPage";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState({
@@ -27,6 +33,8 @@ const App = () => {
     region: null,
     expirationDate: null,
   });
+
+  const [productInfo, setProductInfo] = useState({});
 
   const userCookie = new Cookies();
 
@@ -47,8 +55,28 @@ const App = () => {
     });
   };
 
+  const dataFilter = (string) => {
+    const data = ProductList.filter((product) => product.tag === string);
+    setProductInfo((prevState) => {
+      return { ...prevState, [string]: data };
+    });
+  };
+
+  const masterList = () => {
+    setProductInfo((prevState) => {
+      return { ...prevState, masterList: ProductList };
+    });
+  };
+
   useEffect(() => {
     authListener();
+    masterList();
+    dataFilter("featured");
+    dataFilter("accessories");
+    dataFilter("handbags");
+    dataFilter("makeup");
+    dataFilter("plush");
+    dataFilter("mugs");
   }, []);
 
   const signInHandler = (e) => {
@@ -166,6 +194,7 @@ const App = () => {
 
   const showSearchHandler = () => {
     setShowSearch(!showSearch);
+    console.log(productInfo);
   };
 
   const dropDownHandler = () => {
@@ -200,6 +229,73 @@ const App = () => {
     };
   });
 
+  // Sort Functions
+
+  const sortHandler = (e, category) => {
+    const data = category
+      ? ProductList.filter((product) => product.tag === category)
+      : ProductList;
+
+    const featured = category
+      ? ProductList.filter((product) => product.tag === category)
+      : ProductList;
+
+    if (e.target.value === "Price: Low to High") {
+      data.sort((a, b) => {
+        if (a.productPrice < b.productPrice) {
+          return -1;
+        }
+
+        if (a.productPrice > b.productPrice) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (e.target.value === "Price: High to Low") {
+      data.sort((a, b) => {
+        if (a.productPrice > b.productPrice) {
+          return -1;
+        }
+
+        if (a.productPrice < b.productPrice) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (e.target.value === "Order: A to Z") {
+      data.sort((a, b) => {
+        if (a.productName.toLowerCase() < b.productName.toLowerCase()) {
+          return -1;
+        }
+
+        if (a.productName.toLowerCase() > b.productName.toLowerCase()) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (e.target.value === "Sort By: Featured") {
+      if (category) {
+        setProductInfo((prevState) => {
+          return { ...prevState, [category]: featured };
+        });
+      } else {
+        setProductInfo((prevState) => {
+          return { ...prevState, masterList: featured };
+        });
+      }
+      
+      if (category) {
+        setProductInfo((prevState) => {
+          return { ...prevState, [category]: data };
+        });
+      } else {
+        setProductInfo((prevState) => {
+          return { ...prevState, masterList: data };
+        });
+      }
+    }
+  };
+
   return (
     <div>
       <Router>
@@ -217,8 +313,39 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Navigate replace to="/landing" />} />
-          <Route path="/landing" element={<LandingPage />} />
-          <Route path="/products" element={<ProductsPage />} />
+          <Route
+            path="/landing"
+            element={<LandingPage featured={productInfo.featured} />}
+          />
+          <Route
+            path="/products"
+            element={
+              <ProductsPage
+                masterList={productInfo.masterList}
+                sortHandler={sortHandler}
+              />
+            }
+          />
+          <Route
+            path="/products/accessories"
+            element={<AccessoriesPage accessories={productInfo.accessories} />}
+          />
+          <Route
+            path="/products/makeup"
+            element={<MakeupPage makeup={productInfo.makeup} />}
+          />
+          <Route
+            path="/products/handbags"
+            element={<HandbagsPage handbags={productInfo.handbags} />}
+          />
+          <Route
+            path="/products/mugs"
+            element={<MugsPage mugs={productInfo.mugs} />}
+          />
+          <Route
+            path="/products/plush"
+            element={<PlushPage plush={productInfo.plush} />}
+          />
           <Route path="/about" element={<AboutPage />} />
           <Route
             path="/signin"

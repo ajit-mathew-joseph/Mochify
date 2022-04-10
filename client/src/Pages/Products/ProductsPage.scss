@@ -1,6 +1,23 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
 .products-page {
-    display:  flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include tablet {
+      justify-content: right;
+  }
+
+  @include desktop {
+    justify-content: right;
+  }
+
+  &__results {
+    display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
     justify-content: space-evenly;
+  }
 }

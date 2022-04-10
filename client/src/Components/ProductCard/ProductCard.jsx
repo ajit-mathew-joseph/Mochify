@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import "./ProductCard.scss";
-import sampleImage from "../../Assets/Images/Mugs/pexels-cottonbro-4065905.jpg";
 import heartOutline from "../../Assets/Icons/heart-outline.svg";
 import addSign from "../../Assets/Icons/add-outline.svg";
 import removeSign from "../../Assets/Icons/remove-outline.svg";
@@ -25,17 +24,17 @@ const ProductCard = (props) => {
     <div className="productCard">
       <div className="productCard__image--container">
         <Link to="/">
-          <img className="productCard__image--image" src={sampleImage} />
+          <img className="productCard__image--image" src={require(`../../Assets/Images/${props.image}.jpg`)} />
         </Link>
       </div>
 
       <div className="productCard__text--container">
-        <h4 className="productCard__text--title">Clear White Mug</h4>
+        <h4 className="productCard__text--title">{props.title}</h4>
         <img className="productCard__text--icon" src={heartOutline} />
       </div>
 
       <div className="productCard__price">
-        <div className="productCard__price--text">$10</div>
+        <div className="productCard__price--text">{'$' + `${props.price}`}</div>
         <div className="productCard__price--quantity-container">
           <img
             src={removeSign}

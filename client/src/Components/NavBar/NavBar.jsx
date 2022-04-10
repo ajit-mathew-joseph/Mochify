@@ -33,25 +33,25 @@ const NavBar = (props) => {
               />
             </div>
             <ul className="header-mobile__slidingMenu--container">
-              <Link className="header-mobile__slidingMenu--link" to="/">
+              <Link className="header-mobile__slidingMenu--link" to="/products/accessories">
                 <li className="header-mobile__slidingMenu--link-text">
                   Accessories
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/">
+              <Link className="header-mobile__slidingMenu--link" to="/products/handbags">
                 <li className="header-mobile__slidingMenu--link-text">
                   Handbags
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/">
+              <Link className="header-mobile__slidingMenu--link" to="/products/makeup">
                 <li className="header-mobile__slidingMenu--link-text">
                   Makeup
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/">
+              <Link className="header-mobile__slidingMenu--link" to="/products/mugs">
                 <li className="header-mobile__slidingMenu--link-text">Mugs</li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/">
+              <Link className="header-mobile__slidingMenu--link" to="/products/plush">
                 <li className="header-mobile__slidingMenu--link-text">
                   Plushies
                 </li>
@@ -227,28 +227,28 @@ const NavBar = (props) => {
 
           <ul className="header-desktop__options">
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">
+              <Link to="/products/accessories" className="header-desktop__options--link">
                 Accessories
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">
+              <Link to="/products/handbags" className="header-desktop__options--link">
                 Handbags
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">
+              <Link to="/products/makeup" className="header-desktop__options--link">
                 Makeup
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">
+              <Link to="/products/mugs" className="header-desktop__options--link">
                 Mugs
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/" className="header-desktop__options--link">
-                Plush
+              <Link to="/products/plush" className="header-desktop__options--link">
+                Plushies
               </Link>
             </li>
           </ul>

@@ -1,0 +1,70 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.paginate {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 2% 5% 7%;
+  padding: 2px;
+
+  @include tablet {
+    width: 75%;
+    margin: 2% 5% 2%;
+  }
+
+  @include desktop {
+    width: 30%;
+    padding-right: 50px;
+    margin: 1% 0% 3%;
+  }
+}
+
+.paginate__link {
+  border: 1px solid $palette1;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: $Lato;
+
+  @include tablet {
+    border: 1px solid $palette1;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  @include desktop {
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+.paginate__link--previous {
+  @extend .paginate__link;
+}
+
+.paginate__link--next {
+  @extend .paginate__link;
+  padding: 5px 15px 5px 15px;
+
+  @include tablet {
+      padding: 10px 20px 10px 20px;
+  }
+
+  @include desktop {
+    padding: 10px 30px 10px 30px;
+  }
+}
+
+.paginate__page {
+  font-family: $Lato;
+  font-size: 0.9rem;
+
+  @include tablet {
+    font-size: 1.1rem;
+  }
+}
+
+.paginate__page--active {
+  color: #e84393;
+  font-weight: 600;
+}
