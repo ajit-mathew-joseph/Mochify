@@ -24,28 +24,29 @@
   }
 
   &__image--image {
-    width: 220px;
-    height: 220px;
+    width: 280px;
+    height: 280px;
   }
 
   &__text--container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 205px;
-    max-height: 40px;
+    width: 245px;
+    height: 60px;
     margin: 2% 0% 3%;
   }
 
   &__text--title {
     font-family: $Fredoka;
-    max-width: 80%;
-    padding: 0rem 0rem 0rem 2.5rem;
+    max-width: 90%;
+    padding: 0rem;
   }
 
   &__text--icon {
     width: 20px;
     height: 20px;
+    padding: 0rem 0rem 0rem 0.5rem;
   }
 
   &__price {

@@ -1,0 +1,47 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.sortField {
+  display: flex;
+  width: 320px;
+  justify-content: space-around;
+
+  @include tablet {
+      width: 350px;
+      padding-right: 7%;
+  }
+
+  @include laptop {
+      padding-right: 14%;
+  }
+  
+  @include desktop {
+    width: 28%;
+    padding-right: 0%;
+    justify-content: space-evenly;
+  }
+
+  @include xl-desktop {
+      padding-right: 1.25%;
+  }
+
+  &__sort-options {
+    width: 45%;
+    border: 2px solid $black;
+    font-family: $Lato;
+    height: 25px;
+
+    @include tablet {
+        width: 40%;
+    }
+
+    @include desktop {
+        width: 45%;
+    }
+
+    @include xl-desktop {
+        width: 42%;
+    }
+  }
+}

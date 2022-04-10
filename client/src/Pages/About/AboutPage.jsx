@@ -12,7 +12,7 @@ const AboutPage = () => {
       <main className="about__content">
         <div className="about__about-me">
           <p className="about__about-me--paragraph">
-            Hi! My name is Gabbie, I am 27 years old, and I am a lifelong gamer
+            Hi! My name is Georgia, I am 24 years old, and I am a lifelong gamer
             and artist. I particularly enjoy designing and creating cute
             products like stickers and wallets. At the start of the pandemic, I
             set up an Etsy store, kickstarting my entrepreneurship journey.
@@ -50,7 +50,7 @@ const AboutPage = () => {
             </h3>
           </div>
           <p className="about__social-impact--paragraph">
-            I am a mother to 3 cats: Luna, Lindy, and Essie. Animal care advocacy is super important to me 
+            I am a mother to 3 cats: Cleo, Luna, and Sprinkles. Animal care advocacy is super important to me 
             and by supporting my store, you are making sure that animals everywhere get the care and support they need.
           </p>
 

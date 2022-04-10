@@ -14,10 +14,7 @@ const LandingPage = (props) => {
       <div className="landingPage__divider"></div>
       <p className="landingPage__divider--text">Featured</p>
       <div className="landingPage__featured-products">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {props.featured ? (props.featured.map(product => <ProductCard key={product.id} image={product.image} title={product.productName} price={product.productPrice}/>)) : (<></>)}
       </div>
 
       <div className="landingPage__discount-banner">
