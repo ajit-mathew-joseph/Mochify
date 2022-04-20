@@ -24,7 +24,10 @@ const ProductCard = (props) => {
     <div className="productCard">
       <div className="productCard__image--container">
         <Link to="/">
-          <img className="productCard__image--image" src={require(`../../Assets/Images/${props.image}.jpg`)} />
+          <img
+            className="productCard__image--image"
+            src={require(`../../Assets/Images/${props.image}.jpg`)}
+          />
         </Link>
       </div>
 
@@ -34,7 +37,7 @@ const ProductCard = (props) => {
       </div>
 
       <div className="productCard__price">
-        <div className="productCard__price--text">{'$' + `${props.price}`}</div>
+        <div className="productCard__price--text">{"$" + `${props.price}`}</div>
         <div className="productCard__price--quantity-container">
           <img
             src={removeSign}
@@ -48,7 +51,9 @@ const ProductCard = (props) => {
             className="productCard__price--icon"
           />
         </div>
-        <button className="productCard__price--button">Add to Cart</button>
+        <button className="productCard__price--button" value={props.id} onClick= {(e) => console.log(e.target.value)}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

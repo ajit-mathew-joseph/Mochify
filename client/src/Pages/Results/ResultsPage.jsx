@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import "./PlushPage.scss";
+import "./ResultsPage.scss";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import Paginate from "../../Components/Paginate/Paginate";
 import SortField from "../../Components/SortField/SortField";
 
-const PlushPage = (props) => {
+const ResultsPage = (props) => {
   const [productList, setProductList] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
   const selectHandler = (e) => {
     if (e.target.value === "Show 20 Results") {
       setItemsPerPage(20);
+      console.log(productList);
     } else {
       setItemsPerPage(10);
     }
@@ -22,7 +23,7 @@ const PlushPage = (props) => {
         selectHandler={selectHandler}
         sortHandler={props.sortHandler}
         category={"plush"}
-        title={"All Plushies"}
+        title={"Your Results"}
       />
       <div className="results-page__results">
         {productList ? (
@@ -38,13 +39,15 @@ const PlushPage = (props) => {
           <></>
         )}
       </div>
-      <Paginate
+      <div className="results-page__page-container">
+        <Paginate
           setProductList={setProductList}
           itemsPerPage={itemsPerPage}
-          list={props.plush}
+          list={props.query}
         />
+      </div>
     </div>
   );
 };
 
-export default PlushPage;
+export default ResultsPage;

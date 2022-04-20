@@ -1,12 +1,7 @@
 import "./App.scss";
 import React, { useState, useRef, useEffect } from "react";
 import firebaseApp from "./firebase";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import Cookies from "universal-cookie";
@@ -25,6 +20,7 @@ import MakeupPage from "./Pages/Makeup/MakeupPage";
 import MugsPage from "./Pages/Mugs/MugsPage";
 import HandbagsPage from "./Pages/Handbags/HandbagsPage";
 import PlushPage from "./Pages/Plush/PlushPage";
+import ResultsPage from "./Pages/Results/ResultsPage";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState({
@@ -62,21 +58,23 @@ const App = () => {
     });
   };
 
-  const masterList = () => {
+  const masterList = (string) => {
+    const data = ProductList.filter((product) => product.subTag === string);
     setProductInfo((prevState) => {
-      return { ...prevState, masterList: ProductList };
+      return { ...prevState, masterList: data };
     });
   };
 
   useEffect(() => {
     authListener();
-    masterList();
+    masterList("all");
     dataFilter("featured");
     dataFilter("accessories");
     dataFilter("handbags");
     dataFilter("makeup");
     dataFilter("plush");
     dataFilter("mugs");
+    dataFilter("all");
   }, []);
 
   const signInHandler = (e) => {
@@ -182,19 +180,30 @@ const App = () => {
   // NavBar Handlers
 
   const [slidingMenu, setSlidingMenu] = useState(false);
+  const [cartMenu, setCartMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showMobSearch, setShowMobSearch] = useState(false);
   const [dropDown, setDropDown] = useState(false);
 
   let menuRef = useRef(null);
   let searchRef = useRef(null);
+  let mobSearchRef = useRef(null);
+  let cartRef = useRef(null);
 
   const slidingMenuHandler = () => {
     setSlidingMenu(!slidingMenu);
   };
 
+  const showCartSlideHandler = () => {
+    setCartMenu(!cartMenu);
+  };
+
   const showSearchHandler = () => {
     setShowSearch(!showSearch);
-    console.log(productInfo);
+  };
+
+  const showMobSearchHandler = () => {
+    setShowMobSearch(!showMobSearch);
   };
 
   const dropDownHandler = () => {
@@ -216,9 +225,39 @@ const App = () => {
   });
 
   useEffect(() => {
+    let mouseHandler = (e) => {
+      if (!cartRef.current.contains(e.target)) {
+        setCartMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", mouseHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", mouseHandler);
+    };
+  });
+
+  useEffect(() => {
+    let mouseHandler = (e) => {
+      if (!mobSearchRef.current.contains(e.target)) {
+        setShowMobSearch(false);
+        setQuery("");
+      }
+    };
+
+    document.addEventListener("mousedown", mouseHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", mouseHandler);
+    };
+  });
+
+  useEffect(() => {
     let searchHandler = (e) => {
       if (!searchRef.current.contains(e.target)) {
-        setShowSearch(!showSearch);
+        setShowSearch(false);
+        setQuery("");
       }
     };
 
@@ -234,11 +273,11 @@ const App = () => {
   const sortHandler = (e, category) => {
     const data = category
       ? ProductList.filter((product) => product.tag === category)
-      : ProductList;
+      : ProductList.filter((product) => product.subTag === "all");
 
     const featured = category
       ? ProductList.filter((product) => product.tag === category)
-      : ProductList;
+      : ProductList.filter((product) => product.subTag === "all");
 
     if (e.target.value === "Price: Low to High") {
       data.sort((a, b) => {
@@ -251,6 +290,16 @@ const App = () => {
         }
         return 0;
       });
+
+      if (category) {
+        setProductInfo((prevState) => {
+          return { ...prevState, [category]: data };
+        });
+      } else {
+        setProductInfo((prevState) => {
+          return { ...prevState, masterList: data };
+        });
+      }
     } else if (e.target.value === "Price: High to Low") {
       data.sort((a, b) => {
         if (a.productPrice > b.productPrice) {
@@ -262,6 +311,16 @@ const App = () => {
         }
         return 0;
       });
+
+      if (category) {
+        setProductInfo((prevState) => {
+          return { ...prevState, [category]: data };
+        });
+      } else {
+        setProductInfo((prevState) => {
+          return { ...prevState, masterList: data };
+        });
+      }
     } else if (e.target.value === "Order: A to Z") {
       data.sort((a, b) => {
         if (a.productName.toLowerCase() < b.productName.toLowerCase()) {
@@ -273,6 +332,16 @@ const App = () => {
         }
         return 0;
       });
+
+      if (category) {
+        setProductInfo((prevState) => {
+          return { ...prevState, [category]: data };
+        });
+      } else {
+        setProductInfo((prevState) => {
+          return { ...prevState, masterList: data };
+        });
+      }
     } else if (e.target.value === "Sort By: Featured") {
       if (category) {
         setProductInfo((prevState) => {
@@ -283,7 +352,7 @@ const App = () => {
           return { ...prevState, masterList: featured };
         });
       }
-      
+
       if (category) {
         setProductInfo((prevState) => {
           return { ...prevState, [category]: data };
@@ -296,83 +365,154 @@ const App = () => {
     }
   };
 
+  // Search Function
+  const [query, setQuery] = useState("");
+
+  const searchFunc = (searchTerm) => {
+    const queryData = ProductList.filter((product) => {
+      if (searchTerm === "") {
+        return product;
+      } else if (
+        product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+        return product;
+      }
+    });
+
+    if (searchTerm === "") {
+      setQuery("");
+    } else {
+      setQuery(queryData);
+    }
+  };
+
+  // Key Down Handler
+
+  let navigate = useNavigate();
+
+  const keyDownHandler = (e) => {
+    if (e.key === "Enter") {
+      navigate("../products/results", { replace: true });
+      setShowSearch(false);
+      setShowMobSearch(false);
+    }
+  };
+
+  //Update Cart
+
+  const updateCartHandler = (e) => {
+
+  };
+
   return (
     <div>
-      <Router>
-        <NavBar
-          user={userInfo.user}
-          logout={logoutHandler}
-          slidingMenuHandler={slidingMenuHandler}
-          showSearchHandler={showSearchHandler}
-          dropDownHandler={dropDownHandler}
-          menuRef={menuRef}
-          searchRef={searchRef}
-          slidingMenu={slidingMenu}
-          showSearch={showSearch}
-          dropDown={dropDown}
+      <NavBar
+        user={userInfo.user}
+        logout={logoutHandler}
+        slidingMenuHandler={slidingMenuHandler}
+        showSearchHandler={showSearchHandler}
+        showCartSlideHandler={showCartSlideHandler}
+        dropDownHandler={dropDownHandler}
+        showMobSearchHandler={showMobSearchHandler}
+        menuRef={menuRef}
+        searchRef={searchRef}
+        mobSearchRef={mobSearchRef}
+        cartRef={cartRef}
+        cartMenu={cartMenu}
+        slidingMenu={slidingMenu}
+        showMobSearch={showMobSearch}
+        showSearch={showSearch}
+        dropDown={dropDown}
+        searchFunc={searchFunc}
+        query={query}
+        keyDownHandler={keyDownHandler}
+      />
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/landing" />} />
+        <Route
+          path="/landing"
+          element={
+            <LandingPage
+              featured={productInfo.featured}
+            />
+          }
         />
-        <Routes>
-          <Route path="/" element={<Navigate replace to="/landing" />} />
-          <Route
-            path="/landing"
-            element={<LandingPage featured={productInfo.featured} />}
-          />
-          <Route
-            path="/products"
-            element={
-              <ProductsPage
-                masterList={productInfo.masterList}
-                sortHandler={sortHandler}
-              />
-            }
-          />
-          <Route
-            path="/products/accessories"
-            element={<AccessoriesPage accessories={productInfo.accessories} />}
-          />
-          <Route
-            path="/products/makeup"
-            element={<MakeupPage makeup={productInfo.makeup} />}
-          />
-          <Route
-            path="/products/handbags"
-            element={<HandbagsPage handbags={productInfo.handbags} />}
-          />
-          <Route
-            path="/products/mugs"
-            element={<MugsPage mugs={productInfo.mugs} />}
-          />
-          <Route
-            path="/products/plush"
-            element={<PlushPage plush={productInfo.plush} />}
-          />
-          <Route path="/about" element={<AboutPage />} />
-          <Route
-            path="/signin"
-            element={
-              <SignInPage signInHandler={signInHandler} userInfo={userInfo} />
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <SignUpPage
-                signInHandler={signInHandler}
-                userInfo={userInfo}
-                dateHandler={dateHandler}
-                phoneNumberHandler={phoneNumberHandler}
-                countryHandler={countryHandler}
-                regionHandler={regionHandler}
-                cardNumHandler={cardNumHandler}
-                expirationDateHandler={expirationDateHandler}
-              />
-            }
-          />
-          <Route path="/myCart" element={<ShoppingCartPage />} />
-          <Route path="/myAccount" element={<UserPage />} />
-        </Routes>
-        <Footer />
-      </Router>
+        <Route
+          path="/products"
+          element={
+            <ProductsPage
+              masterList={productInfo.masterList}
+              sortHandler={sortHandler}
+            />
+          }
+        />
+        <Route
+          path="/products/accessories"
+          element={
+            <AccessoriesPage
+              accessories={productInfo.accessories}
+              sortHandler={sortHandler}
+            />
+          }
+        />
+        <Route
+          path="/products/makeup"
+          element={
+            <MakeupPage makeup={productInfo.makeup} sortHandler={sortHandler} />
+          }
+        />
+        <Route
+          path="/products/handbags"
+          element={
+            <HandbagsPage
+              handbags={productInfo.handbags}
+              sortHandler={sortHandler}
+            />
+          }
+        />
+        <Route
+          path="/products/mugs"
+          element={
+            <MugsPage mugs={productInfo.mugs} sortHandler={sortHandler} />
+          }
+        />
+        <Route
+          path="/products/plush"
+          element={
+            <PlushPage plush={productInfo.plush} sortHandler={sortHandler} />
+          }
+        />
+
+        <Route
+          path="/products/results"
+          element={<ResultsPage query={query} sortHandler={sortHandler} />}
+        />
+        <Route path="/about" element={<AboutPage />} />
+        <Route
+          path="/signin"
+          element={
+            <SignInPage signInHandler={signInHandler} userInfo={userInfo} />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <SignUpPage
+              signInHandler={signInHandler}
+              userInfo={userInfo}
+              dateHandler={dateHandler}
+              phoneNumberHandler={phoneNumberHandler}
+              countryHandler={countryHandler}
+              regionHandler={regionHandler}
+              cardNumHandler={cardNumHandler}
+              expirationDateHandler={expirationDateHandler}
+            />
+          }
+        />
+        <Route path="/myCart" element={<ShoppingCartPage />} />
+        <Route path="/myAccount" element={<UserPage />} />
+      </Routes>
+      <Footer />
     </div>
   );
 };

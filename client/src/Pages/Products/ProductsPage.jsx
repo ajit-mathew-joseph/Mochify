@@ -21,6 +21,8 @@ const ProductsPage = (props) => {
       <SortField
         selectHandler={selectHandler}
         sortHandler={props.sortHandler}
+        category={null}
+        title={"All Products"}
       />
       <div className="products-page__results">
         {productList ? (
@@ -35,12 +37,12 @@ const ProductsPage = (props) => {
         ) : (
           <></>
         )}
-        <Paginate
-          setProductList={setProductList}
-          itemsPerPage={itemsPerPage}
-          list={props.masterList}
-        />
       </div>
+      <Paginate
+        setProductList={setProductList}
+        itemsPerPage={itemsPerPage}
+        list={props.masterList}
+      />
     </div>
   );
 };

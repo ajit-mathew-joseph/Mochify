@@ -15,9 +15,13 @@
   }
 
   @include desktop {
-    width: 30%;
+    width: 70%;
     padding-right: 50px;
     margin: 1% 0% 3%;
+  }
+
+  @include xl-desktop {
+    width: 50%;
   }
 }
 

@@ -2,7 +2,7 @@
 @use "../../Styles/partials/mixins" as *;
 @use "../../Styles/partials/variables" as *;
 
-.plush-page {
+.results-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -11,5 +11,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    @include tablet {
+        justify-content: space-around;
+    }
+
+    @include xl-desktop {
+        justify-content: space-between;
+    }
+  }
+
+  &__page-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
   }
 }

@@ -4,44 +4,49 @@
 
 .sortField {
   display: flex;
-  width: 320px;
+  width: 100%;
+  flex-direction: column;
   justify-content: space-around;
-
-  @include tablet {
-      width: 350px;
-      padding-right: 7%;
-  }
-
-  @include laptop {
-      padding-right: 14%;
-  }
-  
-  @include desktop {
-    width: 28%;
-    padding-right: 0%;
-    justify-content: space-evenly;
-  }
+  align-items: center;
 
   @include xl-desktop {
-      padding-right: 1.25%;
+    padding-right: 2.4%;
+  }
+
+  &__title {
+    padding-right: 3.5%;
+    font-family: $Lato;
+    font-size: 2rem;
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    justify-content: right;
   }
 
   &__sort-options {
-    width: 45%;
+    width: 50%;
     border: 2px solid $black;
     font-family: $Lato;
     height: 25px;
+    margin: 0% 1% 0%;
 
     @include tablet {
-        width: 40%;
+      width: 50%;
+    }
+
+    @include laptop {
+      width: 25%;
     }
 
     @include desktop {
-        width: 45%;
+      width: 20%;
     }
 
     @include xl-desktop {
-        width: 42%;
+      width: 15%;
+      margin: 0% 0.2% 0% 1.5%;
     }
   }
 }

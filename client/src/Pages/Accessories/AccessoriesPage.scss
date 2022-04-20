@@ -1,5 +1,20 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
 .accessories-page {
-    display:  flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__results {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    @include xl-desktop {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
 }

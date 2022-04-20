@@ -13,6 +13,7 @@ import NewArrivals from "../../Assets/Banners/New-Arrivals-Menu";
 import Plushies from "../../Assets/Banners/30-Off-Plushies-Menu";
 import dropDownImg from "../../Assets/Images/Nav/dropDown.png";
 import { Link } from "react-router-dom";
+import ProductCard from "../ProductCard/ProductCard";
 
 const NavBar = (props) => {
   return (
@@ -33,25 +34,40 @@ const NavBar = (props) => {
               />
             </div>
             <ul className="header-mobile__slidingMenu--container">
-              <Link className="header-mobile__slidingMenu--link" to="/products/accessories">
+              <Link
+                className="header-mobile__slidingMenu--link"
+                to="/products/accessories"
+              >
                 <li className="header-mobile__slidingMenu--link-text">
                   Accessories
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/products/handbags">
+              <Link
+                className="header-mobile__slidingMenu--link"
+                to="/products/handbags"
+              >
                 <li className="header-mobile__slidingMenu--link-text">
                   Handbags
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/products/makeup">
+              <Link
+                className="header-mobile__slidingMenu--link"
+                to="/products/makeup"
+              >
                 <li className="header-mobile__slidingMenu--link-text">
                   Makeup
                 </li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/products/mugs">
+              <Link
+                className="header-mobile__slidingMenu--link"
+                to="/products/mugs"
+              >
                 <li className="header-mobile__slidingMenu--link-text">Mugs</li>
               </Link>
-              <Link className="header-mobile__slidingMenu--link" to="/products/plush">
+              <Link
+                className="header-mobile__slidingMenu--link"
+                to="/products/plush"
+              >
                 <li className="header-mobile__slidingMenu--link-text">
                   Plushies
                 </li>
@@ -126,7 +142,11 @@ const NavBar = (props) => {
                     </li>
                   </Link>
 
-                  <Link className="header-mobile__slidingMenu--link2" to="/signin" onClick={props.slidingMenuHandler}>
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/signin"
+                    onClick={props.slidingMenuHandler}
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={PersonOutline}
@@ -172,45 +192,84 @@ const NavBar = (props) => {
         <Link className="header-mobile__logo-link" to="/">
           <img className="header-mobile__logo" src={MochifyLogo} />
         </Link>
+        <>
+          <div className="header-mobile__options-container">
+            <img
+              className="header-mobile__options-search"
+              src={SearchIconOutline}
+              onClick={props.showMobSearchHandler}
+            />
+            <img
+              className="header-mobile__options-cart"
+              src={CartIconOutline}
+              onClick={props.showCartSlideHandler}
+            />
 
-        {props.showSearch ? (
-          <div className="header-mobile__options-container">
-            <img
-              className="header-mobile__options-search"
-              src={SearchIconOutline}
-              onClick={props.showSearchHandler}
-            />
-            <div
-              ref={props.searchRef}
-              className="header-mobile__options-search--container"
-            >
-              <input
-                type="text"
-                className="header-mobile__options-search--bar"
-                placeholder="Search for..."
-              />
-              <button className="header-mobile__options-search--button">
-                Search
-              </button>
-            </div>
-            <img
-              className="header-mobile__options-cart"
-              src={CartIconOutline}
-            />
+            {props.cartMenu ? (
+              <div
+                ref={props.cartRef}
+                className="header-mobile__slidingMenu--cart"
+              >
+                <img
+                  className="header-mobile__slidingMenu--cartClose-icon"
+                  onClick={props.showCartSlideHandler}
+                  src={CloseOutline}
+                />
+                <h3 className="header-mobile__slidingMenu--cartTitle">Your Cart</h3>
+              </div>
+            ) : (
+              <div
+                ref={props.cartRef}
+                className="header-mobile__slidingMenu--closeCart"
+              ></div>
+            )}
           </div>
-        ) : (
-          <div className="header-mobile__options-container">
-            <img
-              className="header-mobile__options-search"
-              src={SearchIconOutline}
-              onClick={props.showSearchHandler}
-            />
-            <img
-              className="header-mobile__options-cart"
-              src={CartIconOutline}
-            />
-          </div>
-        )}
+
+          {props.showMobSearch ? (
+            <>
+              <div className="header-mobile__options-search--container">
+                <div className="header-mobile__options-search--subContainer">
+                  <input
+                    ref={props.mobSearchRef}
+                    type="text"
+                    className="header-mobile__options-search--bar"
+                    placeholder="Search for..."
+                    onKeyDown={(e) => console.log(e)}
+                    onChange={(e) => props.searchFunc(e.target.value)}
+                  />
+                  <button className="header-mobile__options-search--button">
+                    Search
+                  </button>
+                </div>
+                {props.query ? (
+                  <div className="header-mobile__options-search--results">
+                    {props.query.length !== 0 ? (
+                      <h3 className="header-mobile__options-search--results-title">
+                        Here are a few results
+                      </h3>
+                    ) : (
+                      <h3 className="header-mobile__options-search--results-title">
+                        No Results Found
+                      </h3>
+                    )}
+                    {props.query.splice(0, 3).map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        image={product.image}
+                        title={product.productName}
+                        price={product.productPrice}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
+        </>
       </div>
 
       {props.slidingMenu ? (
@@ -227,27 +286,42 @@ const NavBar = (props) => {
 
           <ul className="header-desktop__options">
             <li className="header-desktop__option">
-              <Link to="/products/accessories" className="header-desktop__options--link">
+              <Link
+                to="/products/accessories"
+                className="header-desktop__options--link"
+              >
                 Accessories
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/products/handbags" className="header-desktop__options--link">
+              <Link
+                to="/products/handbags"
+                className="header-desktop__options--link"
+              >
                 Handbags
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/products/makeup" className="header-desktop__options--link">
+              <Link
+                to="/products/makeup"
+                className="header-desktop__options--link"
+              >
                 Makeup
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/products/mugs" className="header-desktop__options--link">
+              <Link
+                to="/products/mugs"
+                className="header-desktop__options--link"
+              >
                 Mugs
               </Link>
             </li>
             <li className="header-desktop__option">
-              <Link to="/products/plush" className="header-desktop__options--link">
+              <Link
+                to="/products/plush"
+                className="header-desktop__options--link"
+              >
                 Plushies
               </Link>
             </li>
@@ -265,10 +339,7 @@ const NavBar = (props) => {
             src={PersonOutline}
             onClick={props.dropDownHandler}
           />
-          <img
-            className="header-desktop__icon"
-            src={CartIconOutline}
-          />
+          <img className="header-desktop__icon" src={CartIconOutline} />
         </div>
 
         {props.showSearch ? (
@@ -277,14 +348,42 @@ const NavBar = (props) => {
               ref={props.searchRef}
               className="header-desktop__options-search--container"
             >
-              <input
-                type="text"
-                className="header-desktop__options-search--bar"
-                placeholder="Search for..."
-              />
-              <button className="header-desktop__options-search--button">
-                Search
-              </button>
+              <div className="header-desktop__options-search--subContainer">
+                <input
+                  type="text"
+                  className="header-desktop__options-search--bar"
+                  placeholder="Search for..."
+                  onKeyDown={(e) => props.keyDownHandler(e)}
+                  onChange={(e) => props.searchFunc(e.target.value)}
+                />
+                <button className="header-desktop__options-search--button">
+                  Search
+                </button>
+              </div>
+              {props.query ? (
+                <div className="header-desktop__options-search--results">
+                  {props.query.length !== 0 ? (
+                    <h3 className="header-desktop__options-search--results-title">
+                      Here are a few results
+                    </h3>
+                  ) : (
+                    <h3 className="header-desktop__options-search--results-noTitle">
+                      No Results Found
+                    </h3>
+                  )}
+                  {props.query.splice(0, 3).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      image={product.image}
+                      title={product.productName}
+                      price={product.productPrice}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <></>
+              )}
+              ;
             </div>
           </>
         ) : (
