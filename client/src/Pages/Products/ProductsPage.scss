@@ -7,14 +7,6 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  @include tablet {
-      justify-content: right;
-  }
-
-  @include desktop {
-    justify-content: right;
-  }
-
   &__results {
     display: flex;
     flex-wrap: wrap;

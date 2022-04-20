@@ -1,0 +1,15 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.makeup-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

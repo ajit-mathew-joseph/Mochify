@@ -2,8 +2,8 @@ import React from "react";
 import "./LandingPage.scss";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import jewelryImage from "../../Assets/Banners/jewelry.jpg";
-import sortImage from "../../Assets/Banners/sortStyle.png";
-import mugImage from "../../Assets/Banners/mug.jpg"
+import sortImage from "../../Assets/Banners/sortStyle2.png";
+import mugImage from "../../Assets/Banners/mug.jpg";
 
 const LandingPage = (props) => {
   return (
@@ -14,7 +14,20 @@ const LandingPage = (props) => {
       <div className="landingPage__divider"></div>
       <p className="landingPage__divider--text">Featured</p>
       <div className="landingPage__featured-products">
-        {props.featured ? (props.featured.map(product => <ProductCard key={product.id} image={product.image} title={product.productName} price={product.productPrice}/>)) : (<></>)}
+        {props.featured ? (
+          props.featured.map((product) => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              image={product.image}
+              title={product.productName}
+              price={product.productPrice}
+              setCartInfo={props.setCartInfo}
+            />
+          ))
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="landingPage__discount-banner">
@@ -35,9 +48,16 @@ const LandingPage = (props) => {
         </div>
 
         <div className="landingPage__promo-container--subContainer">
-        <img
+          <img className="landingPage__promo-container--image" src={mugImage} />
+          <button className="landingPage__promo-container--button">
+            Shop Now
+          </button>
+        </div>
+
+        <div className="landingPage__promo-container--subContainer">
+          <img
             className="landingPage__promo-container--image"
-            src={mugImage}
+            src={sortImage}
           />
           <button className="landingPage__promo-container--button">
             Shop Now
@@ -45,17 +65,7 @@ const LandingPage = (props) => {
         </div>
 
         <div className="landingPage__promo-container--subContainer">
-        <img
-            className="landingPage__promo-container--image"
-            src={mugImage}
-          />
-          <button className="landingPage__promo-container--button">
-            Shop Now
-          </button>
-        </div>
-
-        <div className="landingPage__promo-container--subContainer">
-        <img
+          <img
             className="landingPage__promo-container--image"
             src={jewelryImage}
           />
