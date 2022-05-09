@@ -36,7 +36,7 @@ const SignUpPage = (props) => {
 
   return (
     <div className="signUp">
-      <h3 className="signUp__title">Start your Shopping Journey Today!</h3>
+      <h3 className="signUp__title">Start your Shopping Journey!</h3>
       <form className="signUp__form" onSubmit={userHandler}>
         {step === 1 && (
           <UserDetails

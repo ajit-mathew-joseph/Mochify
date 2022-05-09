@@ -1,0 +1,145 @@
+@use "../../Styles/partials/fonts" as *;
+@use "../../Styles/partials/mixins" as *;
+@use "../../Styles/partials/variables" as *;
+
+.shopping-cart {
+  display: flex;
+  min-height: 40vh;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-family: $Lato;
+    font-size: 2rem;
+    position: relative;
+    top: -35px;
+    margin: 7% 0% 0%;
+
+    @include tablet {
+      top: -50px;
+    }
+
+    @include desktop {
+      top: -100px;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__card-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        top: -10px;
+    }
+
+    @include desktop {
+      top: -80px;
+      width: 1000px;
+    }
+  }
+
+  &__empty-cart {
+    display: flex;
+    justify-content: center;
+    font-family: $Fredoka;
+    font-size: 2rem;
+    position: relative;
+    top: -25px;
+    margin: 7% 0% 0%;
+    color: $palette1;
+
+    @include tablet {
+      top: -50px;
+    }
+
+    @include desktop {
+      top: -130px;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__cartTotalContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 250px;
+    margin: 5% 0%;
+    position: relative;
+
+    @include tablet {
+      width: 400px;
+    }
+
+    @include desktop {
+      width: 500px;
+      top: -100px;
+      margin: 5% 0% 0%;
+    }
+  }
+
+  &__cartTotalContainer-title {
+    display: flex;
+    justify-content: center;
+    font-family: $Lato;
+    font-size: 1.3rem;
+
+    @include tablet {
+      font-size: 1.7rem;
+      margin: 5% 0% 2%;
+    }
+  }
+
+  &__cartTotalContainer-text {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+    height: 40px;
+
+    @include desktop {
+      width: 150px;
+    }
+  }
+
+  &__cartTotalContainer-subTitle {
+    font-weight: 600;
+
+    @include desktop {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__cartTotalContainer-price {
+    @include desktop {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__cartTotalContainer-button {
+    width: 40%;
+    height: 35px;
+    background-color: $black;
+    color: $white;
+    border: 1px solid black;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 5% 0%;
+
+    @include tablet {
+      height: 34px;
+      margin: 5% 2%;
+      width: 30%;
+    }
+
+    @include desktop {
+      margin: 7% 2%;
+      width: 30%;
+      height: 44px;
+    }
+  }
+}

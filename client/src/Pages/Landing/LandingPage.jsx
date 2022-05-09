@@ -22,7 +22,9 @@ const LandingPage = (props) => {
               image={product.image}
               title={product.productName}
               price={product.productPrice}
-              setCartInfo={props.setCartInfo}
+              updateCartHandler={props.updateCartHandler}
+              wishListHandler={props.wishListHandler}
+              deleteWishItem={props.deleteWishItem}
             />
           ))
         ) : (

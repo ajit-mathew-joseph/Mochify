@@ -1,12 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.scss";
 import heartOutline from "../../Assets/Icons/heart-outline.svg";
+import heartFilled from "../../Assets/Icons/heart.svg";
 import addSign from "../../Assets/Icons/add-outline.svg";
 import removeSign from "../../Assets/Icons/remove-outline.svg";
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
   const [quantity, setQuantity] = useState(1);
+  const [wishListToggle, setWishListToggle] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const addHandler = () => {
     if (quantity < 10) {
@@ -19,6 +22,19 @@ const ProductCard = (props) => {
       setQuantity(quantity - 1);
     }
   };
+
+  const wishListToggleHandler = (e) => {
+    setClicked(!clicked);
+    if (wishListToggle) {
+      props.wishListHandler(e);
+    } else {
+      props.deleteWishItem(e);
+    }
+  };
+
+  useEffect(() => {
+    setWishListToggle(!wishListToggle);
+  }, [clicked]);
 
   return (
     <div className="productCard">
@@ -33,7 +49,21 @@ const ProductCard = (props) => {
 
       <div className="productCard__text--container">
         <h4 className="productCard__text--title">{props.title}</h4>
-        <img className="productCard__text--icon" src={heartOutline} />
+        {wishListToggle ? (
+          <img
+            className="productCard__text--icon"
+            src={heartOutline}
+            id={props.id}
+            onClick={(e) => wishListToggleHandler(e)}
+          />
+        ) : (
+          <img
+            className="productCard__text--icon"
+            src={heartFilled}
+            id={props.id}
+            onClick={(e) => wishListToggleHandler(e)}
+          />
+        )}
       </div>
 
       <div className="productCard__price">
@@ -51,7 +81,12 @@ const ProductCard = (props) => {
             className="productCard__price--icon"
           />
         </div>
-        <button className="productCard__price--button" value={props.id} onClick= {(e) => console.log(e.target.value)}>
+        <button
+          className="productCard__price--button"
+          id={props.id}
+          value={quantity}
+          onClick={(e) => props.updateCartHandler(e)}
+        >
           Add to Cart
         </button>
       </div>
