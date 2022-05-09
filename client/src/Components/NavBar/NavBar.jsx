@@ -14,6 +14,7 @@ import Plushies from "../../Assets/Banners/30-Off-Plushies-Menu";
 import dropDownImg from "../../Assets/Images/Nav/dropDown.png";
 import { Link } from "react-router-dom";
 import ProductCard from "../ProductCard/ProductCard";
+import CartCard from "../CartCard/CartCard";
 
 const NavBar = (props) => {
   return (
@@ -88,7 +89,10 @@ const NavBar = (props) => {
             <ul className="header-mobile__slidingMenu--container2">
               {props.user ? (
                 <>
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/myAccount"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={PersonOutline}
@@ -97,7 +101,10 @@ const NavBar = (props) => {
                       My Account
                     </li>
                   </Link>
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/orderHistory"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={HistoryOutline}
@@ -106,7 +113,10 @@ const NavBar = (props) => {
                       Order History
                     </li>
                   </Link>
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/myWishlist"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={HeartOutline}
@@ -132,7 +142,10 @@ const NavBar = (props) => {
                 </>
               ) : (
                 <>
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/signup"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={AddOutline}
@@ -156,16 +169,23 @@ const NavBar = (props) => {
                     </li>
                   </Link>
 
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/orderHistory"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={HistoryOutline}
                     />
+                    
                     <li className="header-mobile__slidingMenu--link-text2">
                       Order History
                     </li>
                   </Link>
-                  <Link className="header-mobile__slidingMenu--link2" to="/">
+                  <Link
+                    className="header-mobile__slidingMenu--link2"
+                    to="/myWishlist"
+                  >
                     <img
                       className="header-mobile__slidingMenu--icon"
                       src={HeartOutline}
@@ -202,24 +222,62 @@ const NavBar = (props) => {
             <img
               className="header-mobile__options-cart"
               src={CartIconOutline}
-              onClick={props.showCartSlideHandler}
+              onClick={props.showCartMobSlideHandler}
             />
 
-            {props.cartMenu ? (
+            {props.cartMobMenu ? (
               <div
-                ref={props.cartRef}
+                ref={props.cartMobRef}
                 className="header-mobile__slidingMenu--cart"
               >
                 <img
                   className="header-mobile__slidingMenu--cartClose-icon"
-                  onClick={props.showCartSlideHandler}
+                  onClick={props.showCartMobSlideHandler}
                   src={CloseOutline}
                 />
-                <h3 className="header-mobile__slidingMenu--cartTitle">Your Cart</h3>
+                <h3 className="header-mobile__slidingMenu--cartTitle">
+                  Your Cart
+                </h3>
+                <div className="header-mobile__slidingMenu--cartContainer">
+                  {props.cartList ? (
+                    props.cartList.map((product) => (
+                      <CartCard
+                        key={product.id}
+                        id={product.id}
+                        image={product.image}
+                        title={product.productName}
+                        price={product.productPrice}
+                        quantity={product.quantity}
+                        updateCartItemHandler={props.updateCartItemHandler}
+                        deleteCartItem={props.deleteCartItem}
+                      />
+                    ))
+                  ) : (
+                    <></>
+                  )}
+                </div>
+
+                <div className="header-mobile__slidingMenu--cartSubTotalContainer">
+                  <div className="header-mobile__slidingMenu--cartSubTotalContainer-text">
+                    <p className="header-mobile__slidingMenu--cartSubTotalContainer-title">
+                      Total
+                    </p>
+                    <p className="header-mobile__slidingMenu--cartSubTotalContainer-price">
+                      {"$" + `${props.subTotal.subTotal.toFixed(2)}`}
+                    </p>
+                  </div>
+                  <button
+                    className="header-mobile__slidingMenu--cartSubTotalContainer-button"
+                    disabled={!props.checkoutToggle}
+                    onClick={props.shoppingCartHandler}
+                  >
+                    Check Out
+                  </button>
+                </div>
               </div>
             ) : (
               <div
-                ref={props.cartRef}
+                ref={props.cartMobRef}
                 className="header-mobile__slidingMenu--closeCart"
               ></div>
             )}
@@ -339,8 +397,69 @@ const NavBar = (props) => {
             src={PersonOutline}
             onClick={props.dropDownHandler}
           />
-          <img className="header-desktop__icon" src={CartIconOutline} />
+          <img
+            className="header-desktop__icon"
+            src={CartIconOutline}
+            onClick={props.showCartSlideHandler}
+          />
         </div>
+
+        {props.cartMenu ? (
+          <div
+            ref={props.cartRef}
+            className="header-desktop__slidingMenu--cart"
+          >
+            <img
+              className="header-desktop__slidingMenu--cartClose-icon"
+              onClick={props.showCartSlideHandler}
+              src={CloseOutline}
+            />
+            <h3 className="header-desktop__slidingMenu--cartTitle">
+              Your Cart
+            </h3>
+            <div className="header-desktop__slidingMenu--cartContainer">
+              {props.cartList.length ? (
+                props.cartList.map((product) => (
+                  <CartCard
+                    key={product.id}
+                    id={product.id}
+                    image={product.image}
+                    title={product.productName}
+                    price={product.productPrice}
+                    quantity={product.quantity}
+                    updateCartItemHandler={props.updateCartItemHandler}
+                    deleteCartItem={props.deleteCartItem}
+                  />
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+
+            <div className="header-desktop__slidingMenu--cartSubTotalContainer">
+              <div className="header-desktop__slidingMenu--cartSubTotalContainer-text">
+                <p className="header-desktop__slidingMenu--cartSubTotalContainer-title">
+                  Total
+                </p>
+                <p className="header-desktop__slidingMenu--cartSubTotalContainer-price">
+                  {"$" + `${props.subTotal.subTotal.toFixed(2)}`}
+                </p>
+              </div>
+              <button
+                className="header-desktop__slidingMenu--cartSubTotalContainer-button"
+                disabled={!props.checkoutToggle}
+                onClick={props.shoppingCartHandler}
+              >
+                Check Out
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div
+            ref={props.cartRef}
+            className="header-desktop__slidingMenu--closeCart"
+          ></div>
+        )}
 
         {props.showSearch ? (
           <>
@@ -391,66 +510,131 @@ const NavBar = (props) => {
         )}
 
         {props.dropDown ? (
-          <div className="header-desktop__options-acount--container">
-            <img
-              className="header-desktop__options-account--dropDown"
-              src={dropDownImg}
-            />
-            <ul className="header-desktop__options-account--list">
-              <Link
-                className="header-desktop__options-account--link"
-                to="/"
-                onClick={props.dropDownHandler}
-              >
+          <>
+            {props.user ? (
+              <div className="header-desktop__options-acount--container">
                 <img
-                  className="header-desktop__options-account--icon"
-                  src={AddOutline}
+                  className="header-desktop__options-account--dropDown"
+                  src={dropDownImg}
                 />
-                <li className="header-desktop__options-account--text">
-                  Sign Up
-                </li>
-              </Link>
-              <Link
-                className="header-desktop__options-account--link"
-                to="/signin"
-                onClick={props.dropDownHandler}
-              >
+                <ul className="header-desktop__options-account--list">
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/myAccount"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      My Account
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/orderHistory"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={HistoryOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      Order History
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/myWishlist"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={HeartOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      My Wishlist
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/"
+                    onClick={props.desktopLogout}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      Log Out
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+            ) : (
+              <div className="header-desktop__options-acount--container">
                 <img
-                  className="header-desktop__options-account--icon"
-                  src={PersonOutline}
+                  className="header-desktop__options-account--dropDown"
+                  src={dropDownImg}
                 />
-                <li className="header-desktop__options-account--text">
-                  Log In
-                </li>
-              </Link>
-              <Link
-                className="header-desktop__options-account--link"
-                to="/"
-                onClick={props.dropDownHandler}
-              >
-                <img
-                  className="header-desktop__options-account--icon"
-                  src={HistoryOutline}
-                />
-                <li className="header-desktop__options-account--text">
-                  Order History
-                </li>
-              </Link>
-              <Link
-                className="header-desktop__options-account--link"
-                to="/"
-                onClick={props.dropDownHandler}
-              >
-                <img
-                  className="header-desktop__options-account--icon"
-                  src={HeartOutline}
-                />
-                <li className="header-desktop__options-account--text">
-                  My Wishlist
-                </li>
-              </Link>
-            </ul>
-          </div>
+                <ul className="header-desktop__options-account--list">
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/signup"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={AddOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      Sign Up
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/signin"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={PersonOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      Log In
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/orderHistory"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={HistoryOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      Order History
+                    </li>
+                  </Link>
+                  <Link
+                    className="header-desktop__options-account--link"
+                    to="/myWishlist"
+                    onClick={props.dropDownHandler}
+                  >
+                    <img
+                      className="header-desktop__options-account--icon"
+                      src={HeartOutline}
+                    />
+                    <li className="header-desktop__options-account--text">
+                      My Wishlist
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+            )}
+          </>
         ) : (
           <></>
         )}

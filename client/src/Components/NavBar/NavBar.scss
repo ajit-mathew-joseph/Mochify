@@ -54,57 +54,20 @@ ul {
     }
   }
 
-  &__slidingMenu--cart {
-    position: fixed;
-    top: 0vh;
-    right: 0%;
-    z-index: 100;
-    background-color: $white;
-    width: 88%;
-    height: 100vh;
-    transition: 0.5s ease transform;
-
-    @include tablet {
-      width: 40%;
-    }
-  }
-
   &__slidingMenu--closeCart {
     position: fixed;
     top: 0vh;
     right: 0%;
     z-index: 100;
     background-color: $white;
-    width: 88%;
-    height: 100vh;
+    width: 300px;
+    min-height: 100vh;
     transition: 0.5s ease transform;
     transform: translateX(100%);
 
     @include tablet {
-      width: 40%;
+      width: 350px;
     }
-  }
-
-  &__slidingMenu--cartClose-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    right: 78%;
-    top: 1.5%;
-
-    @include tablet {
-      width: 40px;
-      height: 40px;
-      padding: 0.3rem 0rem 0rem 1.2rem;
-    }
-  }
-
-  &__slidingMenu--cartTitle {
-    position: absolute;
-    top: -0.2%;
-    left: 35%;
-    font-size: 1.5rem;
-    font-family: $Lato;
   }
 
   &__slidingMenu--close {
@@ -139,6 +102,131 @@ ul {
   &__slidingMenu--container {
     position: absolute;
     top: 5%;
+  }
+
+  &__slidingMenu--cartClose-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 78%;
+    top: 1.5%;
+
+    @include tablet {
+      width: 40px;
+      height: 40px;
+      padding: 0.3rem 0rem 0rem 1.2rem;
+    }
+  }
+
+  &__slidingMenu--cartTitle {
+    position: absolute;
+    top: -0.2%;
+    left: 35%;
+    font-size: 1.5rem;
+    font-family: $Lato;
+  }
+
+  &__slidingMenu--cartContainer {
+    position: absolute;
+    top: 8%;
+    padding: 0% 0% 5%;
+  }
+
+  &__slidingMenu--cart {
+    position: fixed;
+    top: 0vh;
+    right: 0%;
+    z-index: 100;
+    background-color: $white;
+    width: 300px;
+    min-height: 100vh;
+    transition: 0.5s ease transform;
+    overflow: scroll;
+
+    @include tablet {
+      width: 350px;
+    }
+  }
+
+  &__slidingMenu--cartSubTotalContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 300px;
+    height: 120px;
+    box-shadow: 0 -2px 5px #0005;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      width: 350px;
+    }
+  }
+
+  &__slidingMenu--cartSubTotalContainer-text {
+    width: 240px;
+    padding: 0% 5% 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-title {
+    font-family: $Lato;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-price {
+    font-family: $Fredoka;
+    font-size: 1.3rem;
+  }
+
+  
+  &__slidingMenu--cartSubTotalContainer-button {
+    width: 30%;
+    height: 35px;
+    background-color: $black;
+    color: $white;
+    border: 1px solid black;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+
+    @include tablet {
+      height: 34px;
+      margin: 0% 2% 0%;
+      width: 30%;
+    }
+
+    @include desktop {
+      width: 15%;
+      height: 44px;
+    }
+  }
+
+  &__slidingMenu--cartSubTotalContainer-button:disabled {
+    width: 30%;
+    height: 35px;
+    background-color: $palette1;
+    color: $white;
+    border: 1px solid $palette1;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+
+    @include tablet {
+      height: 34px;
+      margin: 0% 2% 0%;
+      width: 30%;
+    }
+
+    @include desktop {
+      width: 15%;
+      height: 44px;
+    }
   }
 
   &__slidingMenu--banner {
@@ -572,5 +660,120 @@ ul {
     height: 20px;
     width: 20px;
     margin: 0% 4% 0% 0%;
+  }
+
+  &__slidingMenu--cartClose-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 78%;
+    top: 1.5%;
+    padding: 0.3rem 0rem 0rem 1.2rem;
+  }
+
+  &__slidingMenu--cartTitle {
+    position: absolute;
+    top: -0.2%;
+    left: 35%;
+    font-size: 1.5rem;
+    font-family: $Lato;
+  }
+
+  &__slidingMenu--cartContainer {
+    position: absolute;
+    top: 8%;
+    padding: 0% 0% 5%;
+  }
+
+  &__slidingMenu--cart {
+    position: fixed;
+    top: 0vh;
+    right: 0%;
+    z-index: 100;
+    background-color: $white;
+    width: 350px;
+    min-height: 100vh;
+    transition: 0.5s ease transform;
+    overflow: scroll;
+  }
+
+  &__slidingMenu--cartSubTotalContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 350px;
+    height: 120px;
+    box-shadow: 0 -2px 5px #0005;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-text {
+    width: 240px;
+    padding: 0% 5% 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-title {
+    font-family: $Lato;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-price {
+    font-family: $Fredoka;
+    font-size: 1.3rem;
+  }
+
+  
+  &__slidingMenu--cartSubTotalContainer-button {
+    width: 30%;
+    height: 44px;
+    background-color: $black;
+    color: $white;
+    border: 1px solid black;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+  }
+
+  &__slidingMenu--cartSubTotalContainer-button:disabled {
+    width: 30%;
+    height: 44px;
+    background-color: $palette1;
+    color: $white;
+    border: 1px solid $palette1;
+    font-family: $Lato;
+    font-weight: 700;
+    margin: 0% 0% 1%;
+  }
+
+  &__options-account--dropDown-loggedIn {
+    @include desktop {
+      position: absolute;
+      left: 85.5%;
+      top: 7%;
+      width: 170px;
+      height: 150px;
+    }
+
+    @include xl-desktop {
+      left: 88.5%;
+    }
+  }
+
+  &__options-account--link-dropdown {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $black;
+    font-family: $Lato;
+    width: 200px;
+    margin: 5% 0% 5%;
   }
 }

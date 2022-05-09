@@ -1,11 +1,9 @@
 import React from "react";
 import "./UserPage.scss";
+import "react-datepicker/dist/react-datepicker.css";
 
 const UserPage = (props) => {
-
-    return (
-        <p>Hi! Welcome to the UserPage!</p>
-    );
+  return <div className="userPage"></div>;
 };
 
 export default UserPage;

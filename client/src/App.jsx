@@ -21,6 +21,8 @@ import MugsPage from "./Pages/Mugs/MugsPage";
 import HandbagsPage from "./Pages/Handbags/HandbagsPage";
 import PlushPage from "./Pages/Plush/PlushPage";
 import ResultsPage from "./Pages/Results/ResultsPage";
+import WishList from "./Pages/WishList/WishList";
+import OrderHistory from "./Pages/OrderHistory/OrderHistory";
 
 const App = () => {
   const [userInfo, setUserInfo] = useState({
@@ -177,9 +179,15 @@ const App = () => {
     setSlidingMenu(!slidingMenu);
   };
 
+  const desktopLogoutHandler = () => {
+    firebaseApp.auth().signOut();
+    setDropDown(!dropDown);
+  };
+
   // NavBar Handlers
 
   const [slidingMenu, setSlidingMenu] = useState(false);
+  const [cartMobMenu, setCartMobMenu] = useState(false);
   const [cartMenu, setCartMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [showMobSearch, setShowMobSearch] = useState(false);
@@ -188,10 +196,15 @@ const App = () => {
   let menuRef = useRef(null);
   let searchRef = useRef(null);
   let mobSearchRef = useRef(null);
+  let cartMobRef = useRef(null);
   let cartRef = useRef(null);
 
   const slidingMenuHandler = () => {
     setSlidingMenu(!slidingMenu);
+  };
+
+  const showCartMobSlideHandler = () => {
+    setCartMobMenu(!cartMobMenu);
   };
 
   const showCartSlideHandler = () => {
@@ -214,6 +227,20 @@ const App = () => {
     let mouseHandler = (e) => {
       if (!menuRef.current.contains(e.target)) {
         setSlidingMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", mouseHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", mouseHandler);
+    };
+  });
+
+  useEffect(() => {
+    let mouseHandler = (e) => {
+      if (!cartMobRef.current.contains(e.target)) {
+        setCartMobMenu(false);
       }
     };
 
@@ -366,6 +393,7 @@ const App = () => {
   };
 
   // Search Function
+
   const [query, setQuery] = useState("");
 
   const searchFunc = (searchTerm) => {
@@ -398,10 +426,229 @@ const App = () => {
     }
   };
 
+  // Cart Checkout Enabled/Disabled
+
+  const [checkoutToggle, setCheckoutToggle] = useState(false);
+
+  const checkoutToggleHandler = () => {
+    if (cartList.length) {
+      setCheckoutToggle(true);
+    } else {
+      setCheckoutToggle(false);
+    }
+  };
+
   //Update Cart
+  const [cartList, setCartList] = useState([]);
+  const [subTotal, setSubTotal] = useState({
+    subTotal: 0,
+  });
 
   const updateCartHandler = (e) => {
+    const idMap = cartList.map((item) => item.id);
 
+    if (idMap.includes(e.target.id)) {
+      const cartItem = cartList.filter((product) => product.id === e.target.id);
+
+      const modCartItem = {
+        id: cartItem[0].id,
+        image: cartItem[0].image,
+        productName: cartItem[0].productName,
+        productPrice: cartItem[0].productPrice,
+        subTag: cartItem[0].subTag,
+        tag: cartItem[0].tag,
+        quantity: cartItem[0].quantity + parseInt(e.target.value),
+      };
+
+      const temp = [...cartList];
+      const index = temp.findIndex((object) => object.id === e.target.id);
+      temp.splice(index, 1, modCartItem);
+      setCartList(temp);
+    } else {
+      const cartItem = ProductList.filter(
+        (product) => product.id === e.target.id
+      );
+
+      const modCartItem = {
+        id: cartItem[0].id,
+        image: cartItem[0].image,
+        productName: cartItem[0].productName,
+        productPrice: cartItem[0].productPrice,
+        subTag: cartItem[0].subTag,
+        tag: cartItem[0].tag,
+        quantity: parseInt(e.target.value),
+      };
+
+      setCartList((oldArr) => [...oldArr, modCartItem]);
+      checkoutToggleHandler();
+    }
+  };
+
+  //Update Cart from sidebar
+
+  const updateCartItemHandler = (e, quantity) => {
+    const cartItem = ProductList.filter(
+      (product) => product.id === e.target.id
+    );
+
+    const modCartItem = {
+      id: cartItem[0].id,
+      image: cartItem[0].image,
+      productName: cartItem[0].productName,
+      productPrice: cartItem[0].productPrice,
+      subTag: cartItem[0].subTag,
+      tag: cartItem[0].tag,
+      quantity: parseInt(quantity),
+    };
+
+    const temp = [...cartList];
+    const index = temp.findIndex((object) => object.id === e.target.id);
+    temp.splice(index, 1, modCartItem);
+    setCartList(temp);
+  };
+
+  useEffect(() => {
+    const priceMap = cartList.map((item) => item.productPrice);
+    const quantityMap = cartList.map((item) => item.quantity);
+    const cartTotal = priceMap.reduce(
+      (sum, value, i) => sum + value * quantityMap[i],
+      0
+    );
+
+    setSubTotal((prevState) => {
+      return { ...prevState, subTotal: cartTotal };
+    });
+
+    calcPST();
+  }, [cartList]);
+
+  useEffect(() => {
+    checkoutToggleHandler();
+  }, [cartList]);
+
+  // Delete Item from Cart
+
+  const deleteCartItem = (e) => {
+    const temp = [...cartList];
+    const index = temp.findIndex((object) => object.id === e.target.id);
+    temp.splice(index, 1);
+    setCartList(temp);
+    checkoutToggleHandler();
+  };
+
+  // Navigate to Shopping Cart Page
+
+  const shoppingCartHandler = () => {
+    navigate("../myCart", { replace: true });
+    showCartMobSlideHandler(false);
+    showCartSlideHandler(false);
+  };
+
+  // Taxes
+  const [pstVal, setPSTVal] = useState(0);
+  const [gstVal, setGSTVal] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  const pstMap = {
+    BC: 0.07,
+    AB: 0,
+    SK: 0.06,
+    MB: 0.07,
+    ON: 0.08,
+    QC: 0.0975,
+    NB: 0.1,
+    NL: 0.1,
+    NS: 0.1,
+    PEI: 0.1,
+    NWT: 0,
+    YK: 0,
+    NT: 0,
+    NA: 0,
+  };
+
+  const calcPST = (province = "BC") => {
+    const pst = pstMap[province];
+    const pstTOT = subTotal.subTotal * pst;
+    setPSTVal(pstTOT);
+  };
+
+  const calcGST = () => {
+    const gstTOT = subTotal.subTotal * 0.05;
+    setGSTVal(gstTOT);
+  };
+
+  const calcTotal = () => {
+    const sumTotal = subTotal.subTotal + gstVal + pstVal;
+    setTotal(sumTotal);
+  };
+
+  useEffect(() => {
+    calcPST();
+    calcGST();
+  }, [subTotal]);
+
+  useEffect(() => {
+    calcTotal();
+  }, [subTotal, gstVal, pstVal]);
+
+  // Wishlist Feature
+
+  const [wishList, setWishList] = useState([]);
+
+  const wishListHandler = (e) => {
+    const idMap = wishList.map((item) => item.id);
+
+    if (idMap.includes(e.target.id)) {
+      const wishItem = wishList.filter((product) => product.id === e.target.id);
+
+      const modWishItem = {
+        id: wishItem[0].id,
+        image: wishItem[0].image,
+        productName: wishItem[0].productName,
+        productPrice: wishItem[0].productPrice,
+        subTag: wishItem[0].subTag,
+        tag: wishItem[0].tag,
+        quantity: 1,
+      };
+
+      const temp = [...wishList];
+      const index = temp.findIndex((object) => object.id === e.target.id);
+      temp.splice(index, 1, modWishItem);
+      setWishList(temp);
+    } else {
+      const wishItem = ProductList.filter(
+        (product) => product.id === e.target.id
+      );
+
+      const modWishItem = {
+        id: wishItem[0].id,
+        image: wishItem[0].image,
+        productName: wishItem[0].productName,
+        productPrice: wishItem[0].productPrice,
+        subTag: wishItem[0].subTag,
+        tag: wishItem[0].tag,
+        quantity: 1,
+      };
+
+      setWishList((oldArr) => [...oldArr, modWishItem]);
+    }
+  };
+
+  const deleteWishItem = (e) => {
+    const temp = [...wishList];
+    const index = temp.findIndex((object) => object.id === e.target.id);
+    temp.splice(index, 1);
+    setWishList(temp);
+  };
+
+  // Order History
+  const [cartHistory, setCartHistory] = useState("");
+
+  const cartHistoryHandler = () => {
+    console.log(cartList);
+    setCartHistory(cartList);
+    setCartList([]);
+    console.log(cartHistory);
   };
 
   return (
@@ -411,13 +658,16 @@ const App = () => {
         logout={logoutHandler}
         slidingMenuHandler={slidingMenuHandler}
         showSearchHandler={showSearchHandler}
+        showCartMobSlideHandler={showCartMobSlideHandler}
         showCartSlideHandler={showCartSlideHandler}
         dropDownHandler={dropDownHandler}
         showMobSearchHandler={showMobSearchHandler}
         menuRef={menuRef}
         searchRef={searchRef}
         mobSearchRef={mobSearchRef}
+        cartMobRef={cartMobRef}
         cartRef={cartRef}
+        cartMobMenu={cartMobMenu}
         cartMenu={cartMenu}
         slidingMenu={slidingMenu}
         showMobSearch={showMobSearch}
@@ -426,6 +676,13 @@ const App = () => {
         searchFunc={searchFunc}
         query={query}
         keyDownHandler={keyDownHandler}
+        cartList={cartList}
+        subTotal={subTotal}
+        updateCartItemHandler={updateCartItemHandler}
+        deleteCartItem={deleteCartItem}
+        checkoutToggle={checkoutToggle}
+        shoppingCartHandler={shoppingCartHandler}
+        desktopLogout={desktopLogoutHandler}
       />
       <Routes>
         <Route path="/" element={<Navigate replace to="/landing" />} />
@@ -434,6 +691,9 @@ const App = () => {
           element={
             <LandingPage
               featured={productInfo.featured}
+              updateCartHandler={updateCartHandler}
+              wishListHandler={wishListHandler}
+              deleteWishItem={deleteWishItem}
             />
           }
         />
@@ -509,8 +769,30 @@ const App = () => {
             />
           }
         />
-        <Route path="/myCart" element={<ShoppingCartPage />} />
-        <Route path="/myAccount" element={<UserPage />} />
+        <Route
+          path="/myCart"
+          element={
+            <ShoppingCartPage
+              cartList={cartList}
+              subTotal={subTotal}
+              updateCartItemHandler={updateCartItemHandler}
+              deleteCartItem={deleteCartItem}
+              gstVal={gstVal}
+              pstVal={pstVal}
+              total={total}
+              cartHistoryHandler={cartHistoryHandler}
+            />
+          }
+        />
+        <Route path="/myAccount" element={<UserPage userInfo={userInfo} />} />
+        <Route
+          path="/orderHistory"
+          element={<OrderHistory cartHistory={cartHistory} />}
+        />
+        <Route
+          path="/myWishlist"
+          element={<WishList sortHandler={sortHandler} wishList={wishList} />}
+        />
       </Routes>
       <Footer />
     </div>
