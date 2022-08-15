@@ -1,0 +1,914 @@
+[
+  {
+    "id": "0b35fa0a-e7d6-4e21-a4d5-1c2c22a152c7",
+    "subTag": "all",
+    "tag": "featured",
+    "image": "sabrianna-ZoDgJpXzDB8-unsplash",
+    "productName": "Diamond Heart Necklace",
+    "productPrice": 215
+  },
+  {
+    "id": "4aee2b99-2b11-4097-8c3e-d19a5f3f8e2e",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "alexey-demidov-cHcaTsM-Isg-unsplash",
+    "productName": "Blue Gem bead Bracelet",
+    "productPrice": 50
+  },
+  {
+    "id": "b3eba162-5161-4c31-8c79-181ab2d0f06a",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "andres-vera-CmmYT6Mm948-unsplash",
+    "productName": "Gold, Blue Sapphire Necklace",
+    "productPrice": 375
+  },
+  {
+    "id": "a4da46d6-6ad6-46d3-93d3-b9ca1a446145",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "andrew-hutchings-Asngw4A5_tM-unsplash",
+    "productName": "Studded Diamond Earrings with Pale Topaz",
+    "productPrice": 200
+  },
+  {
+    "id": "b5722831-e8aa-4fa4-96a3-8449d822668a",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "arteum-ro-9QArBVqD7mE-unsplash",
+    "productName": "Amethyst and Silver Earrings",
+    "productPrice": 135
+  },
+  {
+    "id": "d52297ea-850b-496b-b8ad-bf541a258bed",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "arteum-ro-VJZdxfvFGuo-unsplash",
+    "productName": "Silver Earrings with Sapphire",
+    "productPrice": 250
+  },
+  {
+    "id": "0e336b7f-b847-4932-8455-9f15d58fc273",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "asal-mshk-4CFlRuk0uzM-unsplash",
+    "productName": "Diamond Flower Necklace",
+    "productPrice": 335
+  },
+  {
+    "id": "e08370ba-9e30-485c-bcc2-7a4401b12d19",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "carmen-alarcon-xUDN8tHnUeg-unsplash",
+    "productName": "Traditional Pearl Earrings",
+    "productPrice": 185
+  },
+  {
+    "id": "4ae11fda-6f0e-45fd-bab6-d831db4016a4",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "cornelia-ng-2zHQhfEpisc-unsplash",
+    "productName": "Traditional Pearl Necklace",
+    "productPrice": 325
+  },
+  {
+    "id": "8dec01d4-e32a-4fb5-9b5c-9b13d67f3272",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "gabrielle-henderson-XTp4ZzD76Xw-unsplash",
+    "productName": "Shining Gold Star Earrings",
+    "productPrice": 100
+  },
+  {
+    "id": "31d07206-9b1b-4208-88cd-d11b5f6b1866",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "jasmin-chew-XnEq1fOdolE-unsplash",
+    "productName": "Gold Necklace with White Crystal Bead",
+    "productPrice": 155
+  },
+  {
+    "id": "c4d04145-ea79-4529-b461-93728f854133",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "kuromi-lu-_OG-hxrBSUQ-unsplash",
+    "productName": "Gold Ring with Sapphire Embed",
+    "productPrice": 185
+  },
+  {
+    "id": "0225f9d7-0378-4e56-aada-2f6dc7d9142b",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "lilartsy-EJLzjLFnvPI-unsplash",
+    "productName": "Linked Double Silver Chain",
+    "productPrice": 165
+  },
+  {
+    "id": "3fddca1a-745b-46b4-a362-b543a3a8ea30",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "lovesweet-singh-usQ7cDJUYXE-unsplash",
+    "productName": "Diamond & Sapphire Earrings",
+    "productPrice": 295
+  },
+  {
+    "id": "10fd106c-d2b4-434b-b179-71515c07347b",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "luigi-pozzoli-jZrfY30y6Kc-unsplash",
+    "productName": "Pure Silver Ring",
+    "productPrice": 175
+  },
+  {
+    "id": "78a6fda5-6ae5-426c-ae52-9c9187e7df22",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "mariano-rivas-ZYet8yoepik-unsplash",
+    "productName": "Matrimonial Gold Band",
+    "productPrice": 225
+  },
+  {
+    "id": "c8805545-292a-438d-90b0-16b0ef20826a",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "mayank-gehlot-lsxBmX8Hmwc-unsplash",
+    "productName": "Diamond Flower Earrings",
+    "productPrice": 315
+  },
+  {
+    "id": "0a1d9007-0076-4cb7-b221-0ea9108a197d",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "myrlene-numa--GcLvBcfaTI-unsplash",
+    "productName": "Sun-pattern Diamond Earrings",
+    "productPrice": 315
+  },
+  {
+    "id": "9a087584-0a6b-4565-abef-c1752864581b",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "patricia-zavala-SniDFooLoow-unsplash",
+    "productName": "Silver link Sapphire necklace",
+    "productPrice": 315
+  },
+  {
+    "id": "61313733-0ddb-4a9e-abc4-8294ee0fc4c7",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "peng-wang-6xYBrpof1FM-unsplash",
+    "productName": "Pink Crystal Earrings",
+    "productPrice": 155
+  },
+  {
+    "id": "9b2652ec-a219-426c-9006-49bfda3b58ec",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-9FMSF5N65Yg-unsplash",
+    "productName": "Gold & Diamond Bracelet",
+    "productPrice": 195
+  },
+  {
+    "id": "3c5797b8-f992-4d96-aa45-67458a2bfe50",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-CCpQ12CZ2Pc-unsplash",
+    "productName": "Diamond Star Ring",
+    "productPrice": 345
+  },
+  {
+    "id": "90937c77-a077-4772-92c4-ce2e63ef9cdf",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-Fux05TApirY-unsplash",
+    "productName": "Silver & Diamond Bracelet",
+    "productPrice": 245
+  },
+  {
+    "id": "6f9d8134-cff1-41d1-be3a-3e3fca4c6e45",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-KSDaYilI75Q-unsplash",
+    "productName": "Silver & Sapphire Ring",
+    "productPrice": 285
+  },
+  {
+    "id": "886dabed-b382-4853-96ec-21f4884c0cba",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-LlEH4GL5iow-unsplash",
+    "productName": "Silver, Gold & Amethyst Ring",
+    "productPrice": 275
+  },
+  {
+    "id": "6f89f8ca-f681-4a39-bfb3-b043ee251832",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-mjr5izNMxc8-unsplash",
+    "productName": "Garnet & Diamond Ring",
+    "productPrice": 195
+  },
+  {
+    "id": "4bc64340-1c77-41ed-852b-fc2febc67c5e",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-mmCm6c2ru5A-unsplash",
+    "productName": "Sapphire & Diamond Ring",
+    "productPrice": 200
+  },
+  {
+    "id": "09c833c0-0fba-4ad1-9db5-0a969f82d33f",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-u1Hv_erOQH0-unsplash",
+    "productName": "High Clarity Diamond Necklace",
+    "productPrice": 215
+  },
+  {
+    "id": "4b41e215-bfac-4bb6-8438-9cb5f3225c5e",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "sabrianna-x_iL7y7VV4M-unsplash",
+    "productName": "Topaz Claw Earrings",
+    "productPrice": 205
+  },
+  {
+    "id": "f52f379b-3d3e-4657-8a3d-701225a255a9",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "simona-sergi-WNn5xbWfkLI-unsplash",
+    "productName": "Gold & Pearl Pattern Earrings",
+    "productPrice": 205
+  },
+  {
+    "id": "dde45758-ee26-4349-8477-69df1bdc8dbd",
+    "subTag": "all",
+    "tag": "accessories",
+    "image": "valentina-jorio-kfcKlY8KoXo-unsplash",
+    "productName": "Gold & Blue Crystal Heart Earrings",
+    "productPrice": 95
+  },
+  {
+    "id": "23f9825d-b7b6-4e65-99e0-71f04056c07f",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "arno-senoner-HFE2RyC76tw-unsplash",
+    "productName": "Heather Paige Pink Autumn Handbag",
+    "productPrice": 225
+  },
+  {
+    "id": "e60a69ad-499d-440e-b29a-5b06f6eda924",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "arno-senoner-oCXVxwTFwqE-unsplash",
+    "productName": "Ferragamo Red Leather Handbag",
+    "productPrice": 315
+  },
+  {
+    "id": "00135334-f41d-44de-9991-ce949acb5bfb",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "creative-headline-se3GNrXjtdQ-unsplash",
+    "productName": "Umbro Grape Pattern Handbag",
+    "productPrice": 155
+  },
+  {
+    "id": "0b1f9ded-6da9-4091-aedb-2cf25202e414",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "gabrielle-henderson-QG0CvafQooM-unsplash",
+    "productName": "D'oro Sky Blue Purse",
+    "productPrice": 135
+  },
+  {
+    "id": "640dee8a-6527-4fa3-a281-ab9f02b702cd",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "irene-kredenets-jKoRZkv2o0U-unsplash",
+    "productName": "Irene Navy Blue Purse",
+    "productPrice": 125
+  },
+  {
+    "id": "fba2f926-b4d3-4045-a201-302a41d49bf3",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "irene-kredenets-tcVH_BwHtrc-unsplash",
+    "productName": "Irene Tan Checkered Handbag",
+    "productPrice": 235
+  },
+  {
+    "id": "80748ed3-46d0-4f5c-a365-c62eddd04ec9",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-ana-garcia-geng-9245466",
+    "productName": "Ana Garcia Genuine Leather Handbag",
+    "productPrice": 315
+  },
+  {
+    "id": "a28f3410-ff1c-4efd-82ac-8a51e87c81cd",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-anne-r-3661622",
+    "productName": "Annerose Coffee Check Handbag",
+    "productPrice": 155
+  },
+  {
+    "id": "cea3a4aa-fee6-4c05-aa9b-64a2a4e7f40c",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-artem-beliaikin-2534961",
+    "productName": "Belia Camel Leather Handbag",
+    "productPrice": 400
+  },
+  {
+    "id": "f305b684-b444-4fb7-853f-8f0916b629c7",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-cats-coming-1204464",
+    "productName": "Catria Black Leather Handbag",
+    "productPrice": 195
+  },
+  {
+    "id": "cfc6040b-3dd2-4754-9a02-ad3a78c91bc1",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-diana-akhmetianova-4830923",
+    "productName": "Diana Peacock Blue Handbag",
+    "productPrice": 225
+  },
+  {
+    "id": "cc915f3e-da20-4fc7-b360-a6060be15f87",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-diana-akhmetianova-4830926",
+    "productName": "Diana Brown Executive Handbag",
+    "productPrice": 345
+  },
+  {
+    "id": "4e7ec169-3544-437f-8fe2-21df44185edd",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-diana-akhmetianova-4830930",
+    "productName": "Diana Deep Purple Purse",
+    "productPrice": 175
+  },
+  {
+    "id": "545bc580-c4af-478d-b0df-5cd29d18e038",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-enes-çelik-7747108",
+    "productName": "Celik Tan Leather Handbag",
+    "productPrice": 225
+  },
+  {
+    "id": "4e49d6e1-0249-4152-881b-a24840d43c0b",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-flat-hito-904350",
+    "productName": "Hito Blue Flower Handbag",
+    "productPrice": 155
+  },
+  {
+    "id": "f1e14dc2-98a2-45db-86a4-0ad6b5a6445d",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-jasmin-chew-10718777",
+    "productName": "Jasmin Chew Lavender Handbag",
+    "productPrice": 205
+  },
+  {
+    "id": "48f391e3-f339-4dc8-8e99-37be788964ff",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-kaboompics-com-5670",
+    "productName": "Karoline Black Leather Handbag",
+    "productPrice": 185
+  },
+  {
+    "id": "91171b52-dc04-4e01-8241-8165513ae6d8",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-macjoy-peñaredondo-8006405",
+    "productName": "Henderson Brown Weave Handbag",
+    "productPrice": 115
+  },
+  {
+    "id": "81274ea1-9e64-4276-b480-1ff2c7af98b7",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-mikhail-nilov-7595035",
+    "productName": "Arno Senoner Leather Travel Bag",
+    "productPrice": 375
+  },
+  {
+    "id": "38746a37-a873-443b-9f53-4246d26d1613",
+    "subTag": "all",
+    "tag": "handbags",
+    "image": "pexels-vlada-karpovich-4452389",
+    "productName": "Arno Senoner Brown Leather Satchel",
+    "productPrice": 145
+  },
+  {
+    "id": "56601347-0f90-4067-aa18-de38d6b291dc",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-cottonbro-6144292",
+    "productName": "12-piece Makeup Brush Set",
+    "productPrice": 75
+  },
+  {
+    "id": "89285655-4c74-4668-973f-4d10967d8652",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-emma-bauso-2253832",
+    "productName": "Stila Makeup Set",
+    "productPrice": 140
+  },
+  {
+    "id": "828b2791-9a97-40c4-86e2-2fa98c00f6bc",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-freestocksorg-324654",
+    "productName": "Bauso Makeup Palette",
+    "productPrice": 85
+  },
+  {
+    "id": "71406de7-ea9e-4fd1-b5d2-02fbe19b1eec",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-isa-saa-7512746",
+    "productName": "Kristina Makeup Brush Trio",
+    "productPrice": 50
+  },
+  {
+    "id": "be4c5e30-075a-4fbc-b1b0-fffd6c0ba9e5",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-kristina-paukshtite-3060257",
+    "productName": "Kristina Maroon Lipstick",
+    "productPrice": 35
+  },
+  {
+    "id": "04c815e6-8ed6-46b2-be5b-c52951c68a32",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-kseniia-lopyreva-4960067",
+    "productName": "Bauso Makeup Brush Trio",
+    "productPrice": 45
+  },
+  {
+    "id": "b6409213-5159-4294-a99b-382352e686cf",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-mart-production-7290181",
+    "productName": "Hazelwood 10 Brush Set",
+    "productPrice": 115
+  },
+  {
+    "id": "0ed77e48-3da6-400a-83b5-056d2177b34c",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-polina-kovaleva-8100789",
+    "productName": "Hazelwood Mini Makeup Kit",
+    "productPrice": 85
+  },
+  {
+    "id": "676ee40f-8c18-4bb4-8d02-267f3b56f3bd",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-ray-piedra-2721977",
+    "productName": "Alexa 10 Brush Set",
+    "productPrice": 135
+  },
+  {
+    "id": "3c1ef069-f2f1-4388-8226-35b91d6feaa5",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-shiny-diamond-3373722",
+    "productName": "Alexa Yellow Lipstick",
+    "productPrice": 45
+  },
+  {
+    "id": "49960930-3975-4711-963c-f33fdcbd4a02",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-shiny-diamond-3373739",
+    "productName": "Veronique Makeup Kit with Bag",
+    "productPrice": 125
+  },
+  {
+    "id": "fb7af1fe-1641-423b-96f4-3b6ec5f73600",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-suzy-hazelwood-1327689",
+    "productName": "Suzy Makeup Palette",
+    "productPrice": 70
+  },
+  {
+    "id": "108bf940-353d-4442-a33e-327a3ab55850",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-suzy-hazelwood-2533266",
+    "productName": "Suzy Blush & Lipstick Combo",
+    "productPrice": 90
+  },
+  {
+    "id": "40a67df0-2f6b-4246-a82a-cac188910427",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-valeria-boltneva-72876",
+    "productName": "Valeria Rouge Lipstick",
+    "productPrice": 40
+  },
+  {
+    "id": "44ce1ca8-3bd0-410d-b84a-5466b12034a4",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-valeria-boltneva-90297",
+    "productName": "Valeria 7 Lipstick Set",
+    "productPrice": 280
+  },
+  {
+    "id": "faa9699a-c5be-440f-b715-59c5ea50c62d",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-Venus-2639947",
+    "productName": "Venus Makeup Palette Trio",
+    "productPrice": 240
+  },
+  {
+    "id": "deececc2-7c08-47ee-96ab-4815ea69fd78",
+    "subTag": "all",
+    "tag": "makeup",
+    "image": "pexels-Venus-2732197",
+    "productName": "Venus Foundation Trio",
+    "productPrice": 180
+  },
+  {
+    "id": "18d13c5e-af2a-4dd4-a4da-78d372bc210d",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-10622469",
+    "productName": "Ceramic Charcoal Mug Set",
+    "productPrice": 35
+  },
+  {
+    "id": "4ac74253-9f45-45e0-9f84-0857ea83ebf6",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-alina-vilchenko-10313368",
+    "productName": "Turquoise Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "5557c931-4427-4368-9afa-cbec3d8466bb",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-aljona-ovtsinnikova-9898729",
+    "productName": "Coffee Powder Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "6b80511b-6b05-4010-a516-b93f322ad5a0",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-ann-buht-762092",
+    "productName": "Stainless Steel Polka Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "963eb923-70ec-409e-bc90-8cc21253214f",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-chelsey-horne-714093",
+    "productName": "Today's Goal Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "5c496e28-2b5d-455f-9745-55b0dea0b006",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-cottonbro-4065905",
+    "productName": "Plain Ceramic Mug",
+    "productPrice": 10
+  },
+  {
+    "id": "2dbf770d-d62a-464a-9196-c31327e98275",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-dagmara-dombrovska-7632289",
+    "productName": "Let Life... Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "7227376d-e322-477e-b7fc-9b5a07ce6012",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-dagmara-dombrovska-8070875",
+    "productName": "Light Purple Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "e208ead3-c723-4967-87b5-7f6cd73ce979",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-dominika-roseclay-696189",
+    "productName": "Pink Pattern Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "9ae44cbe-2ff2-43f6-84d3-c08c986c26c9",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-dominika-roseclay-894608",
+    "productName": "Rooster Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "cf317737-cf6f-407f-9e0f-b652a48552cb",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-drew-williams-3483967",
+    "productName": "Style Black Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "e1f3035a-83b0-495a-8064-8914bc88445e",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-edward-eyer-2228889",
+    "productName": "Light Brown Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "71e0906e-551c-491c-8c86-fa50e96b7865",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-emiliano-arano-1443384",
+    "productName": "Stainless Steel Mug",
+    "productPrice": 25
+  },
+  {
+    "id": "73ef7a2f-ca2f-435a-a00c-36e50673cea9",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-jack-redgate-3013980",
+    "productName": "Say Yes... Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "249ba100-0e3c-4bc4-b324-741e290f0007",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-jill-wellington-3309626",
+    "productName": "Believe Christmas Ceramic Mug",
+    "productPrice": 25
+  },
+  {
+    "id": "fed0c9da-aca2-48da-b4b0-1c43246e53fc",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-joslyn-pickens-3831730",
+    "productName": "Patterned Lacquered Ceramic Mug",
+    "productPrice": 30
+  },
+  {
+    "id": "b6fe6bff-0825-419d-86ad-dc75b1fc0e5e",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-karolina-grabowska-4466255",
+    "productName": "Brown Pattern Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "39f3854f-a74c-46ae-898c-307c8e9f06fe",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-lilartsy-3216564",
+    "productName": "Grey Powdered Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "9725c267-9c07-4e5b-a3f3-ce4071c1f9ed",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-lisa-fotios-851213",
+    "productName": "Be Happy Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "b3e52a72-f4a0-4525-ad21-429d07605f31",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-lisa-fotios-1755215",
+    "productName": "I Believe Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "fe995471-61ca-404e-a003-5c3703da1a31",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-nicole-queiroz-10961688",
+    "productName": "Brown Flower Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "bb636594-cbf3-4dd8-8a27-596d584bba76",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-olenka-sergienko-3806690",
+    "productName": "You Can Win Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "9a7c9121-d7f8-4334-b284-0ec6984eb295",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-pnw-production-8251774",
+    "productName": "Plain Black Ceramic Mug",
+    "productPrice": 20
+  },
+  {
+    "id": "98105749-ec11-444c-97fd-c27d9500e0bf",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-taryn-elliott-6259278",
+    "productName": "Sky Blue Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "8d2391cd-5b0a-48a9-9809-e56acd69e3df",
+    "subTag": "all",
+    "tag": "mugs",
+    "image": "pexels-vinicius-estevao-2113129",
+    "productName": "Red Ceramic Mug",
+    "productPrice": 15
+  },
+  {
+    "id": "986ed3a6-d14b-11ec-8d6c-f3a1a7ddf85d",
+    "subTag": "all",
+    "tag": "featured",
+    "image": "pexels-anthony-133639",
+    "productName": "Reindeer Teddy Bear",
+    "productPrice": 25
+  },
+  {
+    "id": "d1e4fb2e-d14b-11ec-bdfd-a7166cbde59d",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-cottonbro-5895046",
+    "productName": "Grey Bunny Plush",
+    "productPrice": 30
+  },
+  {
+    "id": "0660f47a-d14c-11ec-aec4-83154d41eeec",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-cottonbro-6612079",
+    "productName": "Brown Horned Owl Plush",
+    "productPrice": 20
+  },
+  {
+    "id": "2ef7c526-d14c-11ec-a515-779376d15596",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-dan-girsh-10141903",
+    "productName": "Giant Grey Teddy Bear",
+    "productPrice": 50
+  },
+  {
+    "id": "6dec75b0-d14c-11ec-bfc5-9f5708d88eb5",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-freestocksorg-245914",
+    "productName": "Brown Bowtie Teddy",
+    "productPrice": 15
+  },
+  {
+    "id": "9a52d8d8-d14c-11ec-9b28-2762ace2670f",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-ingrid-dietrich-1364562",
+    "productName": "Blue Owl Plush",
+    "productPrice": 20
+  },
+  {
+    "id": "24d00210-d14d-11ec-af5a-cf9d03ff3e3c",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-ishara-kasthuriarachchi-5741531",
+    "productName": "Brown Furry Teddy",
+    "productPrice": 30
+  },
+  {
+    "id": "9e31a4c0-d151-11ec-af5e-170ed4fbac43",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karen-laårk-boshoff-6771361",
+    "productName": "Polar Teddy Bear",
+    "productPrice": 20
+  },
+  {
+    "id": "584bc61a-d152-11ec-85f9-ef2a96de5cec",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karen-laårk-boshoff-7436118",
+    "productName": "Light Brown Bowtie Teddy Bear",
+    "productPrice": 25
+  },
+  {
+    "id": "e1bd6660-d152-11ec-a9c9-ef01be1ab1fd",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karen-laårk-boshoff-9524064",
+    "productName": "White Reindeer Tedddy Bear",
+    "productPrice": 25
+  },
+  {
+    "id": "45a9826c-d153-11ec-bac9-af1ab27c4714",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karolina-grabowska-4886924",
+    "productName": "Grey Elephant Plush",
+    "productPrice": 30
+  },
+  {
+    "id": "7786d3de-d153-11ec-82f6-27fd0298fc7f",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karolina-grabowska-4887081",
+    "productName": "Pink Unicorn Plush",
+    "productPrice": 35
+  },
+  {
+    "id": "e959f4d2-d153-11ec-b16e-2b6d0c4f2397",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karolina-grabowska-4887084",
+    "productName": "Grey Bunny Plush",
+    "productPrice": 25
+  },
+  {
+    "id": "8162bf70-d154-11ec-918a-1bbca76ff229",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-karolina-grabowska-4887086",
+    "productName": "Pink Goat Plush",
+    "productPrice": 30
+  },
+  {
+    "id": "5312005c-d156-11ec-8cea-6fd05f66e291",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-madjid-atmania-7298152",
+    "productName": "Giant Brown Teddy Plush",
+    "productPrice": 45
+  },
+  {
+    "id": "cd8a42da-d157-11ec-a716-7796f11a2fdf",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-pixabay-33159",
+    "productName": "Pooh Bear Plush",
+    "productPrice": 40
+  },
+  {
+    "id": "1x808846-d158-11ec-9dbe-5339a5e1b165",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-pixabay-42230",
+    "productName": "Get Well Soon Teddy Bear",
+    "productPrice": 30
+  },
+  {
+    "id": "11f6822a-d159-11ec-b33c-db8b5697deb9",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-pixabay-63637",
+    "productName": "Green Croco Plush",
+    "productPrice": 15
+  },
+  {
+    "id": "81f9bede-d159-11ec-b7ff-8b6add6b04ed",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-polina-zimmerman-4008584",
+    "productName": "Stay Safe Goat Plush",
+    "productPrice": 30
+  },
+  {
+    "id": "abfc6cb8-d159-11ec-8bba-efea29c242c8",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-susanne-jutzeler-1661286",
+    "productName": "Brown Santa Teddy Bear",
+    "productPrice": 25
+  },
+  {
+    "id": "102652b2-d15a-11ec-8d65-171a137920a4",
+    "subTag": "all",
+    "tag": "plush",
+    "image": "pexels-vidal-balielo-jr-2337832",
+    "productName": "Brown Giraffe Plush",
+    "productPrice": 20
+  }
+]

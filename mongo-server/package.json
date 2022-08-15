@@ -1,0 +1,19 @@
+{
+  "name": "mongo-server",
+  "version": "1.0.0",
+  "description": "A lateral mongo server build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ajit Joseph",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "path": "^0.12.7",
+    "uuid": "^8.3.2"
+  }
+}
